@@ -201,6 +201,12 @@ figure{margin:0;position:relative}
   transition:color .3s,background .3s;
 }
 .months button:last-child{border-right:0}
+@media(max-width:560px){
+  .months{grid-template-columns:repeat(6,1fr)}
+  .months button{padding:13px 2px 14px;letter-spacing:.06em;border-bottom:1px solid var(--edge-soft)}
+  .months button:nth-child(6){border-right:0}
+  .months button:nth-child(n+7){border-bottom:0}
+}
 .months button:hover{color:var(--tx-head);background:rgba(62,50,49,.05)}
 .months button[aria-selected="true"]{background:var(--pula);color:var(--bone);font-weight:500}
 .chartwrap{background:linear-gradient(to bottom,rgba(59,103,110,.05),transparent)}
