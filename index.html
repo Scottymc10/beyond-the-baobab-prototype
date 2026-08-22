@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#2A3831">
+<meta name="description" content="Design prototype — Beyond the Baobab, Botswana safari consultancy.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Beyond the Baobab — design prototype">
+<meta property="og:description" content="A proposed redesign. Not live. Prices and figures are placeholders.">
+<meta property="og:image" content="assets/lions.webp">
+<meta name="twitter:card" content="summary_large_image">
+<title>Beyond the Baobab — Botswana safaris, planned from the inside</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..500,0..100,0..1;1,9..144,300..400,0..100,0..1&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Grounds : ink (default) · cocoa (pause) · bone (light) · sage (footer)
+   Accents : sand = brand · pula = water, gauge only
+   Type    : one display face, one text face, five sizes. No others.
+   ============================================================ */
+:root{
+  --ink:#2A3831;
+  --ink-deep:#1F2A24;
+  --ink-raised:#334339;
+  --cocoa:#3E3231;
+  --sage:#495B4C;
+  --bone:#E8E5D9;
+  --sand:#EFDCBD;
+  --pula:#8FB6BA;
+  --water-fill:rgba(143,182,186,.10);
+
+  --tx-head:#E8E5D9;
+  --tx-lead:#DAD6C9;
+  --tx-body:#B7BDB1;
+  --tx-mute:#9AA598;
+  --edge:rgba(232,229,217,.16);
+  --edge-soft:rgba(232,229,217,.08);
+
+  --display:"Fraunces",Georgia,serif;
+  --text:"Archivo","Helvetica Neue",Arial,sans-serif;
+
+  --fs-display:clamp(40px,5.4vw,72px);
+  --fs-h2:clamp(27px,3.3vw,43px);
+  --fs-h3:clamp(19px,1.5vw,22px);
+  --fs-quote:clamp(23px,2.4vw,32px);
+  --fs-lead:clamp(16.5px,1.2vw,18.5px);
+  --fs-body:15.5px;
+  --fs-small:13px;
+  --fs-label:11px;
+
+  --m-lead:46ch;
+  --m-body:58ch;
+  --m-small:46ch;
+
+  --pad:clamp(20px,5vw,72px);
+  --gap:clamp(30px,4.6vw,76px);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ink);color:var(--tx-body);
+  font-family:var(--text);font-weight:300;font-size:var(--fs-body);line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:1.5px solid var(--sand);outline-offset:3px}
+
+/* ---------- type roles ---------- */
+h1,h2,h3{
+  font-family:var(--display);font-weight:300;
+  font-variation-settings:"SOFT" 8,"WONK" 0,"opsz" 120;
+  color:var(--tx-head);letter-spacing:-.015em;margin:0;
+}
+h1{font-size:var(--fs-display);line-height:1.04}
+h2{font-size:var(--fs-h2);line-height:1.08;max-width:17ch}
+h3{font-size:var(--fs-h3);line-height:1.25;letter-spacing:-.005em}
+
+p{margin:0 0 1.15em;max-width:var(--m-body)}
+p:last-child{margin-bottom:0}
+
+.label{
+  font-size:var(--fs-label);font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--sand);margin:0 0 22px;max-width:none;
+}
+.label.mute{color:var(--tx-mute)}
+.lead{font-size:var(--fs-lead);line-height:1.6;color:var(--tx-lead);max-width:var(--m-lead)}
+.small{font-size:var(--fs-small);line-height:1.6;color:var(--tx-mute);max-width:var(--m-small)}
+.quote{
+  font-family:var(--display);font-weight:300;font-size:var(--fs-quote);
+  line-height:1.24;letter-spacing:-.015em;color:var(--tx-head);
+  max-width:20ch;margin:0 0 26px;font-variation-settings:"SOFT" 8,"WONK" 0,"opsz" 60;
+}
+.quote em{font-style:normal;color:var(--sand)}
+.quote.italic{font-style:italic;font-variation-settings:"SOFT" 8,"WONK" 1,"opsz" 48}
+
+/* ---------- structure ---------- */
+.sec{padding:clamp(78px,9.5vw,146px) var(--pad)}
+.wrap{max-width:1280px;margin:0 auto}
+.sechead{display:flex;flex-wrap:wrap;gap:24px var(--gap);align-items:flex-end;justify-content:space-between;margin-bottom:clamp(40px,5vw,68px)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start}
+@media(max-width:840px){.two{grid-template-columns:1fr}}
+
+.on-cocoa{background:var(--cocoa)}
+.on-bone{
+  background:var(--bone);
+  --tx-head:#332927;--tx-lead:#4C4841;--tx-body:#55524A;--tx-mute:#6E6B60;
+  --sand:#8A6C3A;--pula:#3B676E;--water-fill:rgba(59,103,110,.13);
+  --edge:rgba(62,50,49,.20);--edge-soft:rgba(62,50,49,.10);
+  color:var(--tx-body);
+}
+.on-sage{background:var(--sage)}
+
+/* ---------- nav ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+  justify-content:space-between;padding:20px var(--pad);
+  border-bottom:1px solid transparent;
+  transition:background .5s ease,border-color .5s ease,padding .4s ease;
+}
+.nav.solid{background:rgba(42,56,49,.93);backdrop-filter:blur(14px);border-bottom-color:var(--edge);padding-top:14px;padding-bottom:14px}
+.logo{display:block;height:clamp(26px,2.3vw,32px);width:auto}
+.navlinks{display:flex;gap:32px;align-items:center}
+.navlinks a{font-size:var(--fs-label);letter-spacing:.18em;text-transform:uppercase;color:var(--tx-mute);transition:color .3s}
+.navlinks a:hover{color:var(--tx-head)}
+.navcta{border:1px solid var(--edge);border-radius:999px;padding:10px 21px;color:var(--tx-head)!important;transition:border-color .3s,background .3s}
+.navcta:hover{border-color:var(--sand);background:rgba(239,220,189,.10)}
+@media(max-width:900px){.navlinks a:not(.navcta){display:none}}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;position:relative;display:flex;align-items:flex-end;padding:0 var(--pad) clamp(44px,6vw,76px);background:var(--ink-deep);overflow:hidden}
+.hero-img{position:absolute;inset:0;background-size:cover;background-position:center 42%;transform:scale(1.06);animation:drift 22s ease-out forwards}
+@keyframes drift{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(31,42,36,.55) 0%,rgba(31,42,36,.06) 26%,rgba(31,42,36,.58) 62%,rgba(31,42,36,.88) 84%,var(--ink) 100%)}
+.hero-inner{position:relative;z-index:3;width:100%;max-width:1280px;margin:0 auto}
+.hero h1{max-width:14ch;margin-bottom:24px}
+.line{display:block;overflow:hidden}
+.line > span{display:block;transform:translateY(102%);animation:up 1.05s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes up{to{transform:translateY(0)}}
+.hero .label{opacity:0;animation:fade 1s ease .1s forwards}
+.hero .lead{opacity:0;animation:fade 1.1s ease .8s forwards}
+.hero-foot{
+  opacity:0;animation:fade 1.1s ease 1.1s forwards;
+  display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap;
+  margin-top:clamp(44px,6vw,76px);padding-top:20px;border-top:1px solid var(--edge);
+}
+.hero-foot p{margin:0}
+@keyframes fade{to{opacity:1}}
+.cue{font-size:var(--fs-label);letter-spacing:.2em;text-transform:uppercase;color:var(--tx-mute)}
+.cue span{display:inline-block;animation:nudge 2.6s ease-in-out infinite;margin-left:8px}
+@keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+/* ---------- figures ---------- */
+figure{margin:0;position:relative}
+.fig{background:var(--ink-raised) center/cover no-repeat}
+.mono{filter:grayscale(1) contrast(1.07) brightness(.95)}
+.cap{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;margin:0;
+  padding:70px clamp(20px,5vw,72px) 20px;
+  font-size:var(--fs-small);line-height:1.5;color:rgba(232,229,217,.82);max-width:none;
+  background:linear-gradient(transparent,rgba(24,32,27,.7));
+}
+
+/* ---------- facts ---------- */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px;padding-top:28px;border-top:1px solid var(--edge)}
+.facts strong{
+  display:block;font-family:var(--display);font-weight:300;font-size:clamp(26px,2.8vw,34px);
+  font-variation-settings:"opsz" 40;color:var(--sand);line-height:1;margin-bottom:10px;
+}
+.facts span{display:block;font-size:var(--fs-label);letter-spacing:.11em;text-transform:uppercase;color:var(--tx-mute);line-height:1.5}
+
+/* ---------- cards ---------- */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--edge-soft)}
+@media(max-width:960px){.grid3{grid-template-columns:1fr}}
+.card{background:var(--ink);padding:0 0 32px;transition:background .5s}
+.card:hover{background:var(--ink-raised)}
+.card .fig{aspect-ratio:4/4.6;overflow:hidden;margin-bottom:26px}
+.card .fig i{display:block;position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.4s cubic-bezier(.22,1,.36,1)}
+.card:hover .fig i{transform:scale(1.05)}
+.card .body{padding:0 clamp(18px,2vw,28px)}
+.card .label{margin-bottom:14px;display:flex;gap:16px}
+.card h3{margin-bottom:14px}
+.card p{font-size:var(--fs-body);margin-bottom:22px;max-width:34ch}
+.route{font-size:var(--fs-small);letter-spacing:.05em;color:var(--tx-mute);margin-bottom:16px;max-width:none}
+.route b{font-weight:400;color:var(--tx-lead)}
+.price{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-top:1px solid var(--edge);padding-top:16px}
+.price em{font-style:normal;font-family:var(--display);font-weight:300;font-size:20px;font-variation-settings:"opsz" 24;color:var(--tx-head)}
+.price .small{white-space:nowrap;max-width:none}
+
+/* ---------- gauge ---------- */
+.months{display:grid;grid-template-columns:repeat(12,1fr);border-top:1px solid var(--edge)}
+.months button{
+  appearance:none;background:none;border:0;border-right:1px solid var(--edge-soft);
+  padding:15px 4px 17px;color:var(--tx-mute);font-family:var(--text);
+  font-size:var(--fs-label);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;
+  transition:color .3s,background .3s;
+}
+.months button:last-child{border-right:0}
+.months button:hover{color:var(--tx-head);background:rgba(62,50,49,.05)}
+.months button[aria-selected="true"]{background:var(--pula);color:var(--bone);font-weight:500}
+.chartwrap{background:linear-gradient(to bottom,rgba(59,103,110,.05),transparent)}
+.chart{display:block;width:100%;height:clamp(148px,19vw,220px)}
+.legend{display:flex;gap:28px;flex-wrap:wrap;padding:14px 0 0;border-top:1px solid var(--edge)}
+.legend span{font-size:var(--fs-label);letter-spacing:.13em;text-transform:uppercase;color:var(--tx-mute)}
+.legend i{display:inline-block;width:22px;height:0;border-top:2px solid var(--pula);vertical-align:middle;margin-right:10px}
+.legend .dot i{border-top-style:dotted;border-color:var(--tx-mute)}
+.readout{display:grid;grid-template-columns:1.1fr 1fr;gap:var(--gap);padding-top:clamp(30px,3.4vw,44px)}
+@media(max-width:840px){.readout{grid-template-columns:1fr}}
+.readout > div{transition:opacity .3s ease}
+.fading{opacity:.18}
+.readout h3{margin-bottom:14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tag{font-size:var(--fs-label);letter-spacing:.13em;text-transform:uppercase;color:var(--sand);border:1px solid var(--edge);border-radius:999px;padding:6px 13px}
+.rows{border-top:1px solid var(--edge)}
+.rows div{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--edge-soft)}
+.rows span:first-child{font-size:var(--fs-label);letter-spacing:.13em;text-transform:uppercase;color:var(--tx-mute)}
+.rows span:last-child{font-size:var(--fs-body);text-align:right;color:var(--tx-lead)}
+
+/* ---------- notes ---------- */
+.note{background:var(--ink);padding:clamp(28px,3vw,38px) clamp(20px,2.4vw,30px);display:flex;flex-direction:column;gap:15px;min-height:220px;transition:background .45s}
+.note:hover{background:var(--ink-raised)}
+.note .label{margin:0}
+.note p{max-width:32ch;margin:0}
+.note .small{margin-top:auto}
+
+/* ---------- enquire ---------- */
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:22px 24px}
+@media(max-width:560px){.fields{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:9px}
+.field.full{grid-column:1/-1}
+label{font-size:var(--fs-label);letter-spacing:.18em;text-transform:uppercase;color:var(--tx-mute)}
+input,select,textarea{
+  background:transparent;border:0;border-bottom:1px solid var(--edge);color:var(--tx-head);
+  font-family:var(--text);font-weight:300;font-size:var(--fs-body);padding:10px 0;
+  border-radius:0;width:100%;transition:border-color .3s;
+}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--tx-mute) 50%),linear-gradient(135deg,var(--tx-mute) 50%,transparent 50%);background-position:calc(100% - 11px) 21px,calc(100% - 6px) 21px;background-size:5px 5px;background-repeat:no-repeat}
+select option{background:var(--cocoa);color:var(--bone)}
+input::placeholder,textarea::placeholder{color:var(--tx-mute);opacity:.7}
+input:focus,select:focus,textarea:focus{border-bottom-color:var(--sand);outline:none}
+textarea{resize:vertical;min-height:76px}
+.submit{margin-top:34px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.btn{
+  appearance:none;cursor:pointer;font-family:var(--text);font-size:var(--fs-label);
+  letter-spacing:.18em;text-transform:uppercase;font-weight:500;
+  background:var(--sand);color:var(--cocoa);border:1px solid var(--sand);
+  border-radius:999px;padding:16px 34px;transition:background .3s,color .3s;
+}
+.btn:hover{background:transparent;color:var(--sand)}
+#formnote{font-size:var(--fs-small);color:var(--tx-mute);max-width:32ch;line-height:1.5}
+
+/* ---------- footer ---------- */
+.foot{padding:clamp(56px,6vw,84px) var(--pad) 32px}
+.foot .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:36px}
+@media(max-width:760px){.foot .wrap{grid-template-columns:1fr 1fr}}
+.footlogo{display:block;width:min(238px,66%);height:auto;margin-bottom:22px}
+.foot h4{font-size:var(--fs-label);letter-spacing:.18em;text-transform:uppercase;color:var(--tx-mute);margin:0 0 18px;font-weight:500}
+.foot nav a{display:block;font-size:var(--fs-body);color:var(--tx-lead);padding:5px 0;transition:color .3s}
+.foot nav a:hover{color:var(--sand)}
+.legal{max-width:1280px;margin:clamp(44px,5vw,68px) auto 0;padding-top:22px;border-top:1px solid var(--edge-soft);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.legal span{font-size:var(--fs-small);color:var(--tx-mute)}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .95s cubic-bezier(.22,1,.36,1),transform .95s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0ms!important;transition-duration:.001ms!important}
+  .rv{opacity:1;transform:none}
+  .line > span{transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="#top" aria-label="Beyond the Baobab — home"><img class="logo" src="assets/logo.webp" alt="Beyond the Baobab"></a>
+  <div class="navlinks">
+    <a href="#journeys">Journeys</a>
+    <a href="#when">When to come</a>
+    <a href="#people">Who we are</a>
+    <a href="#notes">Field notes</a>
+    <a href="#enquire" class="navcta">Enquire</a>
+  </div>
+</nav>
+
+<!-- 1 · HERO -->
+<header class="hero" id="top">
+  <div class="hero-img" style="background-image:url('assets/lions.webp')"></div>
+  <div class="hero-inner">
+    <p class="label">Owner-run · Gaborone, Botswana</p>
+    <h1>
+      <span class="line"><span style="animation-delay:.15s">A safari planned</span></span>
+      <span class="line"><span style="animation-delay:.28s">from inside Botswana</span></span>
+    </h1>
+    <p class="lead">We are a husband-and-wife consultancy in Gaborone. Every camp on this site, we have slept in — most of them this year.</p>
+    <div class="hero-foot">
+      <p class="cue">Scroll <span>↓</span></p>
+      <p class="small" style="max-width:30ch">Okavango Delta · Chobe · Makgadikgadi · Namibia · Zimbabwe</p>
+    </div>
+  </div>
+</header>
+
+<!-- 2 · WHY US -->
+<section class="sec rv">
+  <div class="wrap two">
+    <div>
+      <p class="label mute">Why us</p>
+      <h2>Most agents sell camps they have never visited.</h2>
+    </div>
+    <div>
+      <p class="lead">We live four hours from the airstrip. When a camp changes managers, rebuilds its decks or quietly stops being worth the money, we know within the week — because we were there, or because the guide who took us out last season called to tell us.</p>
+      <div class="facts">
+        <div><strong>41</strong><span>Camps stayed in, 2025–26</span></div>
+        <div><strong>9</strong><span>Years living in Botswana</span></div>
+        <div><strong>1:1</strong><span>Every journey planned by Kristy</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · JOURNEYS -->
+<section class="sec rv" id="journeys" style="padding-top:0">
+  <div class="wrap">
+    <div class="sechead">
+      <div>
+        <p class="label">Sample journeys</p>
+        <h2>Three we would book ourselves</h2>
+      </div>
+      <p class="small">Starting points, not packages. Every route is rebuilt around your dates and your pace.</p>
+    </div>
+
+    <div class="grid3">
+      <article class="card">
+        <figure class="fig"><i class="mono" style="background-image:url('assets/mokoro.webp')"></i></figure>
+        <div class="body">
+          <p class="label"><span>9 nights</span><span>Jun – Sep</span></p>
+          <h3>The Flood Route</h3>
+          <p class="route"><b>Maun</b> → Jao → Khwai → <b>Chobe</b></p>
+          <p>Poled through the Delta at peak water, then north to the river where the dry season pulls every elephant in the region down to one bank.</p>
+          <div class="price"><em>From £8,950</em><span class="small">pp, all flights</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <figure class="fig"><i style="background-image:url('assets/chobe-boat.webp')"></i></figure>
+        <div class="body">
+          <p class="label"><span>7 nights</span><span>Aug – Oct</span></p>
+          <h3>Elephants of the Chobe</h3>
+          <p class="route"><b>Kasane</b> → Chobe → Linyanti → <b>Vic Falls</b></p>
+          <p>The densest elephant population on earth, watched from a boat at eye level, and three nights above the gorge to finish.</p>
+          <div class="price"><em>From £7,400</em><span class="small">pp, all flights</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <figure class="fig"><i class="mono" style="background-image:url('assets/wild-dogs.webp')"></i></figure>
+        <div class="body">
+          <p class="label"><span>8 nights</span><span>May – Sep</span></p>
+          <h3>Predator Country</h3>
+          <p class="route"><b>Maun</b> → Khwai → Selinda → <b>Linyanti</b></p>
+          <p>Built around the denning season. Private concessions, off-road permitted, and a guide who has followed the same pack for six years.</p>
+          <div class="price"><em>From £9,800</em><span class="small">pp, all flights</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · THE ARGUMENT -->
+<section class="sec on-cocoa rv">
+  <div class="wrap two" style="align-items:center">
+    <figure class="fig mono" style="aspect-ratio:4/5;background-image:url('assets/leopard.webp')"></figure>
+    <div>
+      <p class="label">The thing nobody tells you</p>
+      <p class="quote">A camp is a building. What you are actually buying is <em>the guide, the concession and the month.</em></p>
+      <p class="lead">Two lodges twenty minutes apart can offer completely different safaris, because one holds a private concession where you may drive off-road at night and the other sits in a public park where you may not. That distinction is worth more than any thread count.</p>
+      <p class="label mute" style="margin:26px 0 0">Kristy Briscoe — founder</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · BAND -->
+<figure class="fig mono rv" style="height:clamp(280px,42vw,500px);background-image:url('assets/chobe-crossing.webp');background-position:center 60%">
+  <figcaption class="cap">The Chobe at high water — elephants crossing at dusk, September.</figcaption>
+</figure>
+
+<!-- 6 · WHEN TO COME -->
+<section class="sec on-bone rv" id="when">
+  <div class="wrap">
+    <div class="sechead">
+      <div>
+        <p class="label">When to come</p>
+        <h2>The rain falls in Angola in January. It reaches the Delta in June.</h2>
+      </div>
+      <p class="small">Botswana floods in its driest month. That one fact decides your dates, your camps and a third of your budget.</p>
+    </div>
+
+    <div class="chartwrap">
+      <svg class="chart" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
+        <path id="floodArea" fill="var(--water-fill)"></path>
+        <path id="rainPath" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 5" opacity=".45"></path>
+        <path id="floodPath" fill="none" stroke="var(--pula)" stroke-width="2"></path>
+        <line id="marker" y1="0" y2="240" stroke="currentColor" stroke-width="1" opacity=".35"></line>
+        <circle id="dot" r="5" fill="var(--pula)"></circle>
+      </svg>
+    </div>
+
+    <div class="months" id="months" role="tablist" aria-label="Month"></div>
+
+    <div class="legend">
+      <span><i></i>Water in the Delta</span>
+      <span class="dot"><i></i>Rain over the catchment</span>
+    </div>
+
+    <div class="readout">
+      <div>
+        <h3 id="rTitle">August</h3>
+        <p id="rBody"></p>
+        <div class="tags" id="rTags"></div>
+      </div>
+      <div class="rows" id="rRows"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · WHO WE ARE -->
+<section class="sec rv" id="people">
+  <div class="wrap two" style="align-items:center">
+    <figure class="fig" style="aspect-ratio:4/5;background-image:url('assets/guide-guest.webp');background-position:center 20%"></figure>
+    <div>
+      <p class="label">Who we are</p>
+      <p class="quote italic">“I will tell you when a camp isn’t worth it. That is the entire reason to use someone who lives here.”</p>
+      <p class="lead">Beyond the Baobab is two people. Kristy plans every journey herself and answers her own phone seven days a week — there is no team of consultants and no queue.</p>
+      <p class="label mute" style="margin:26px 0 0">Kristy Briscoe — founder</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · FIELD NOTES -->
+<section class="sec rv" id="notes" style="padding-top:0">
+  <div class="wrap">
+    <div class="sechead">
+      <div>
+        <p class="label">Field notes</p>
+        <h2>What we saw this season</h2>
+      </div>
+      <a href="#" class="small" style="border-bottom:1px solid var(--edge);padding-bottom:5px">All notes →</a>
+    </div>
+    <div class="grid3">
+      <a class="note" href="#">
+        <p class="label">Camp report</p>
+        <h3>Two nights at Jao after the rebuild</h3>
+        <p>The rooms are extraordinary and the guiding has not kept pace. Who it suits, and who it doesn’t.</p>
+        <p class="small">14 July 2026 · 6 min</p>
+      </a>
+      <a class="note" href="#">
+        <p class="label">Field note</p>
+        <h3>Why we stopped recommending August to first-timers</h3>
+        <p>Peak water is beautiful, and it is the most expensive, most crowded, coldest month of the year.</p>
+        <p class="small">2 June 2026 · 4 min</p>
+      </a>
+      <a class="note" href="#">
+        <p class="label">Field note</p>
+        <h3>The poler’s calendar</h3>
+        <p>Ndao has poled the same channels for nineteen years. He knows where the water will be before the hydrologists do.</p>
+        <p class="small">28 April 2026 · 7 min</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · BAND -->
+<figure class="fig rv" style="height:clamp(280px,42vw,500px);background-image:url('assets/helicopter.webp');background-position:center 55%">
+  <figcaption class="cap">Kristy, scouting a new fly-in route over the Khwai — April 2026.</figcaption>
+</figure>
+
+<!-- 10 · ENQUIRE -->
+<section class="sec on-cocoa rv" id="enquire">
+  <div class="wrap two">
+    <div>
+      <p class="label">Enquire</p>
+      <h2>Tell us roughly what you want.</h2>
+      <p class="lead" style="margin-top:24px">Kristy replies personally, usually within a day. If your dates and budget don’t fit the trip you have in mind, she will say so in the first email rather than the fifth.</p>
+      <p class="small" style="margin-top:26px">kristy@beyondthebaobab.com<br>+267 71 288 476 · Gaborone, Botswana</p>
+    </div>
+    <div>
+      <div class="fields">
+        <div class="field"><label for="f1">Name</label><input id="f1" type="text" placeholder="Your name"></div>
+        <div class="field"><label for="f2">Email</label><input id="f2" type="email" placeholder="you@email.com"></div>
+        <div class="field"><label for="f3">Month you’d travel</label>
+          <select id="f3"><option>Not decided yet</option><option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option selected>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option></select>
+        </div>
+        <div class="field"><label for="f4">Nights in the bush</label>
+          <select id="f4"><option>5 – 7</option><option selected>8 – 10</option><option>11 – 14</option><option>More than 14</option></select>
+        </div>
+        <div class="field"><label for="f5">Travelling as</label>
+          <select id="f5"><option>Two of us</option><option>Family with children</option><option>Small group of friends</option><option>On my own</option></select>
+        </div>
+        <div class="field"><label for="f6">Budget per person</label>
+          <select id="f6"><option>£5,000 – £8,000</option><option selected>£8,000 – £12,000</option><option>£12,000 – £20,000</option><option>Over £20,000</option><option>I’d like guidance</option></select>
+        </div>
+        <div class="field full"><label for="f7">What would make the trip</label><textarea id="f7" placeholder="Walking safaris, a photographic vehicle, no small children in camp, wild dogs."></textarea></div>
+      </div>
+      <div class="submit">
+        <button class="btn" id="send">Send enquiry</button>
+        <span id="formnote">Prototype — this form isn’t connected yet.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot on-sage">
+  <div class="wrap">
+    <div>
+      <img class="footlogo" src="assets/logo.webp" alt="Beyond the Baobab">
+      <p class="small">Boutique safari consultancy, owner-run from Gaborone. Botswana, Namibia, Zimbabwe and South Africa.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <nav>
+        <a href="#journeys">Journeys</a>
+        <a href="#when">When to come</a>
+        <a href="#people">Who we are</a>
+        <a href="#notes">Field notes</a>
+      </nav>
+    </div>
+    <div>
+      <h4>Elsewhere</h4>
+      <nav>
+        <a href="https://www.instagram.com/beyondthebaobabsafaris/">Instagram</a>
+        <a href="https://www.linkedin.com/company/beyond-the-baobab-safaris/">LinkedIn</a>
+        <a href="#enquire">Enquire</a>
+      </nav>
+    </div>
+  </div>
+  <div class="legal">
+    <span>© 2026 Beyond the Baobab</span>
+    <span>Design prototype</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var nav=document.getElementById('nav');
+  function onScroll(){ nav.classList.toggle('solid', window.scrollY>60); }
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+
+  var rvs=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.06,rootMargin:'0px 0px -5% 0px'});
+    Array.prototype.forEach.call(rvs,function(el){io.observe(el);});
+  } else { Array.prototype.forEach.call(rvs,function(el){el.classList.add('in');}); }
+
+  var M=[
+    {m:'Jan',name:'January',flood:.28,rain:.92,
+     t:'Rain over the catchment, low water in the Delta',
+     b:'The storms that will flood the Okavango in June are falling now — 1,000km away in the Angolan highlands. Down here it is hot, green and thunderous, with newborn impala everywhere. Some Delta camps close.',
+     tags:['Green season','Calving','Best rates'],
+     rows:[['Water in the Delta','Low'],['Daytime','32–36°C, humid'],['Best for','Birds, newborns, photography'],['Rates','Lowest of the year'],['Watch for','A few camps closed for works']]},
+    {m:'Feb',name:'February',flood:.30,rain:1,
+     t:'Peak rain, and zebra on the pans',
+     b:'The wettest month, and the one month we will steer you away from the Delta and towards the Makgadikgadi. Water sits on the pans, flamingos breed, and Botswana’s zebra migration reaches Nxai Pan.',
+     tags:['Zebra migration','Flamingos','Green season'],
+     rows:[['Water in the Delta','Low'],['Daytime','30–35°C, wet'],['Best for','Makgadikgadi, Nxai Pan'],['Rates','Lowest of the year'],['Watch for','Black-cotton roads, access by air']]},
+    {m:'Mar',name:'March',flood:.36,rain:.78,
+     t:'Rain easing, first water in the panhandle',
+     b:'The rains taper and the first Angolan water pushes into the northern panhandle. Landscapes are still lush, the light is exceptional after storms, and you will have most camps close to yourself.',
+     tags:['Quiet camps','Green landscapes'],
+     rows:[['Water in the Delta','Rising in the north'],['Daytime','30–34°C'],['Best for','Photography, value'],['Rates','Low season'],['Watch for','Thick grass hides cats']]},
+    {m:'Apr',name:'April',flood:.50,rain:.35,
+     t:'The turn — dry air arrives, water keeps rising',
+     b:'Our quiet favourite. The rain stops, the air clears, the grass is still green and the flood climbs daily. Shoulder rates with near dry-season conditions. Book it a year out.',
+     tags:['Shoulder value','Clear air','Our pick'],
+     rows:[['Water in the Delta','Rising'],['Daytime','28–32°C, cool nights'],['Best for','Value with dry-season feel'],['Rates','Shoulder'],['Watch for','Fills up early']]},
+    {m:'May',name:'May',flood:.68,rain:.10,
+     t:'Dry season opens, channels filling fast',
+     b:'Cloudless days, cold mornings, no dust yet and the mokoro channels reopening one by one. Game viewing sharpens as seasonal pans dry and animals commit to permanent water.',
+     tags:['Mokoro reopens','Cool mornings'],
+     rows:[['Water in the Delta','High and rising'],['Daytime','25–29°C, nights 8°C'],['Best for','First-timers'],['Rates','Shoulder into high'],['Watch for','Cold at dawn — pack layers']]},
+    {m:'Jun',name:'June',flood:.86,rain:.02,
+     t:'The Angolan rain arrives — water everywhere, no cloud',
+     b:'The paradox that defines Botswana: the Delta is near its fullest in the middle of the dry season. Boating, poling and driving all at their best in the same week.',
+     tags:['High water','Peak game viewing'],
+     rows:[['Water in the Delta','Very high'],['Daytime','24–28°C, nights 5°C'],['Best for','The classic Delta trip'],['Rates','High season'],['Watch for','Book 12–15 months out']]},
+    {m:'Jul',name:'July',flood:.97,rain:0,
+     t:'Peak flood — the Delta at its largest',
+     b:'The most photographed version of Botswana: flooded plains, channels open to their limit, elephants crossing chest-deep. Also the coldest month, and the busiest.',
+     tags:['Peak flood','Busiest','Coldest nights'],
+     rows:[['Water in the Delta','Peak'],['Daytime','23–27°C, nights 4°C'],['Best for','Water-based safaris'],['Rates','Peak'],['Watch for','Camps sell out 18 months ahead']]},
+    {m:'Aug',name:'August',flood:1,rain:0,
+     t:'Peak water meets peak dry — the heaviest month',
+     b:'Everything is at maximum: the water, the game concentrations, the prices and the vehicles at a sighting. Extraordinary, and not the month we would choose for a first safari.',
+     tags:['Peak season','Highest rates'],
+     rows:[['Water in the Delta','Peak'],['Daytime','26–30°C, nights 7°C'],['Best for','Repeat visitors'],['Rates','Peak'],['Watch for','Crowding in public parks']]},
+    {m:'Sep',name:'September',flood:.92,rain:.04,
+     t:'Water receding, elephants down to the Chobe',
+     b:'The best all-round month in our opinion. Warm days, water still high in the Delta, and the Chobe riverfront carrying some of the densest elephant numbers anywhere on earth.',
+     tags:['Chobe elephants','Warm','Our pick'],
+     rows:[['Water in the Delta','High, falling'],['Daytime','30–34°C'],['Best for','Delta and Chobe combined'],['Rates','Peak'],['Watch for','Warms quickly by month end']]},
+    {m:'Oct',name:'October',flood:.72,rain:.30,
+     t:'The hot month, and the most intense game viewing',
+     b:'Locally called suicide month for the heat, and it is when predators do their best work around the last waterholes. Dusty, dramatic, and cheaper than September.',
+     tags:['Predator action','Hot','Value'],
+     rows:[['Water in the Delta','Falling'],['Daytime','36–40°C'],['Best for','Photographers'],['Rates','High, softening late'],['Watch for','Midday is for the plunge pool']]},
+    {m:'Nov',name:'November',flood:.48,rain:.62,
+     t:'First storms — green in a fortnight',
+     b:'The break in the weather is one of the great sights in Africa: dust to green grass in days. Migrant birds arrive in numbers. Excellent value, and a real gamble on rain.',
+     tags:['First rains','Migrant birds','Value'],
+     rows:[['Water in the Delta','Low'],['Daytime','33–38°C'],['Best for','Birders, value seekers'],['Rates','Shoulder'],['Watch for','Unpredictable weather']]},
+    {m:'Dec',name:'December',flood:.32,rain:.85,
+     t:'Green season proper — pans fill, zebra move',
+     b:'Lush, warm and quiet, with afternoon storms and superb skies. Family-friendly rates, and the Makgadikgadi comes alive as water returns to the pans.',
+     tags:['Green season','Families','Storm skies'],
+     rows:[['Water in the Delta','Low'],['Daytime','32–36°C'],['Best for','Makgadikgadi, families'],['Rates','Low, festive peak late'],['Watch for','Christmas fills fast']]}
+  ];
+
+  var W=1200,TOP=26,BOT=210;
+  function xOf(i){ return (i+0.5)*(W/12); }
+  function yOf(v){ return BOT - v*(BOT-TOP); }
+  function spline(key){
+    var pts=M.map(function(d,i){return [xOf(i),yOf(d[key])];});
+    var p='M'+pts[0][0]+','+pts[0][1];
+    for(var i=0;i<pts.length-1;i++){
+      var p0=pts[i-1]||pts[i], p1=pts[i], p2=pts[i+1], p3=pts[i+2]||pts[i+1];
+      p+='C'+(p1[0]+(p2[0]-p0[0])/6)+','+(p1[1]+(p2[1]-p0[1])/6)+' '+
+           (p2[0]-(p3[0]-p1[0])/6)+','+(p2[1]-(p3[1]-p1[1])/6)+' '+p2[0]+','+p2[1];
+    }
+    return p;
+  }
+  var fp=spline('flood');
+  document.getElementById('floodPath').setAttribute('d',fp);
+  document.getElementById('rainPath').setAttribute('d',spline('rain'));
+  document.getElementById('floodArea').setAttribute('d',fp+'L'+xOf(11)+','+BOT+'L'+xOf(0)+','+BOT+'Z');
+
+  var host=document.getElementById('months');
+  M.forEach(function(d,i){
+    var b=document.createElement('button');
+    b.type='button'; b.textContent=d.m; b.setAttribute('role','tab'); b.setAttribute('aria-selected','false');
+    b.addEventListener('click',function(){select(i);});
+    b.addEventListener('mouseenter',function(){select(i);});
+    b.addEventListener('focus',function(){select(i);});
+    host.appendChild(b);
+  });
+
+  var elT=document.getElementById('rTitle'), elB=document.getElementById('rBody'),
+      elTags=document.getElementById('rTags'), elRows=document.getElementById('rRows'),
+      marker=document.getElementById('marker'), dot=document.getElementById('dot'),
+      btns=host.querySelectorAll('button'), current=-1;
+
+  function select(i){
+    if(i===current) return;
+    current=i;
+    var d=M[i];
+    Array.prototype.forEach.call(btns,function(b,j){ b.setAttribute('aria-selected', j===i?'true':'false'); });
+    marker.setAttribute('x1',xOf(i)); marker.setAttribute('x2',xOf(i));
+    dot.setAttribute('cx',xOf(i)); dot.setAttribute('cy',yOf(d.flood));
+    var box=elT.parentNode;
+    box.classList.add('fading');
+    window.setTimeout(function(){
+      elT.textContent=d.name+' — '+d.t;
+      elB.textContent=d.b;
+      elTags.innerHTML=d.tags.map(function(t){return '<span class="tag">'+t+'</span>';}).join('');
+      elRows.innerHTML=d.rows.map(function(r){return '<div><span>'+r[0]+'</span><span>'+r[1]+'</span></div>';}).join('');
+      box.classList.remove('fading');
+    },150);
+  }
+  select(7);
+
+  document.getElementById('send').addEventListener('click',function(){
+    document.getElementById('formnote').textContent='Prototype — nothing was sent. This will route to Kristy’s inbox when built.';
+  });
+})();
+</script>
+</body>
+</html>
