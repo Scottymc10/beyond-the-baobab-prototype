@@ -44,14 +44,14 @@
   --display-hero:"Cormorant Garamond",Georgia,serif;
   --text:"Archivo","Helvetica Neue",Arial,sans-serif;
 
-  --fs-display:clamp(40px,5.4vw,72px);
-  --fs-h2:clamp(27px,3.3vw,43px);
-  --fs-h3:clamp(19px,1.5vw,22px);
-  --fs-quote:clamp(23px,2.4vw,32px);
-  --fs-lead:clamp(16.5px,1.2vw,18.5px);
-  --fs-body:15.5px;
-  --fs-small:13px;
-  --fs-label:11px;
+  --fs-display:clamp(50px,6.9vw,112px);
+  --fs-h2:clamp(33px,3.9vw,58px);
+  --fs-h3:clamp(22px,1.9vw,29px);
+  --fs-quote:clamp(27px,3vw,41px);
+  --fs-lead:clamp(19px,1.55vw,26px);
+  --fs-body:clamp(17px,1.22vw,21.5px);
+  --fs-small:clamp(15px,1.08vw,19px);
+  --fs-label:clamp(13px,0.75vw,15px);
 
   --m-lead:46ch;
   --m-body:58ch;
@@ -141,7 +141,7 @@ p:last-child{margin-bottom:0}
 .hero-inner{position:relative;z-index:3;width:100%;max-width:1280px;margin:0 auto}
 .hero h1{
   font-family:var(--display-hero);font-weight:500;font-variation-settings:normal;
-  font-size:clamp(46px,6.4vw,88px);line-height:1.02;letter-spacing:-.005em;
+  font-size:clamp(52px,7vw,108px);line-height:1.02;letter-spacing:-.005em;
   max-width:15ch;margin-bottom:24px;
 }
 .line{display:block;overflow:hidden}
@@ -174,7 +174,7 @@ figure{margin:0;position:relative}
 /* ---------- facts ---------- */
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px;padding-top:28px;border-top:1px solid var(--edge)}
 .facts strong{
-  display:block;font-family:var(--display);font-weight:300;font-size:clamp(26px,2.8vw,34px);
+  display:block;font-family:var(--display);font-weight:300;font-size:clamp(30px,3.4vw,46px);
   font-variation-settings:"opsz" 40;color:var(--sand);line-height:1;margin-bottom:10px;
 }
 .facts span{display:block;font-size:var(--fs-label);letter-spacing:.11em;text-transform:uppercase;color:var(--tx-mute);line-height:1.5}
@@ -194,7 +194,7 @@ figure{margin:0;position:relative}
 .route{font-size:var(--fs-small);letter-spacing:.05em;color:var(--tx-mute);margin-bottom:16px;max-width:none}
 .route b{font-weight:400;color:var(--tx-lead)}
 .price{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-top:1px solid var(--edge);padding-top:16px}
-.price em{font-style:normal;font-family:var(--display);font-weight:300;font-size:20px;font-variation-settings:"opsz" 24;color:var(--tx-head)}
+.price em{font-style:normal;font-family:var(--display);font-weight:300;font-size:clamp(20px,1.6vw,25px);font-variation-settings:"opsz" 24;color:var(--tx-head)}
 .price .small{white-space:nowrap;max-width:none}
 
 /* ---------- gauge ---------- */
@@ -251,7 +251,7 @@ figure{margin:0;position:relative}
 .voice{margin:0;display:flex;flex-direction:column;gap:22px;min-height:100%}
 .voice blockquote{
   margin:0;font-family:var(--display);font-weight:300;
-  font-size:clamp(18px,1.5vw,21px);line-height:1.4;letter-spacing:-.005em;color:var(--tx-head);
+  font-size:clamp(19px,1.7vw,24px);line-height:1.42;letter-spacing:-.005em;color:var(--tx-head);
   font-variation-settings:"SOFT" 8,"WONK" 0,"opsz" 40;
 }
 .voice figcaption{margin-top:auto;padding-top:6px}
@@ -495,7 +495,7 @@ textarea{resize:vertical;min-height:76px}
 </section>
 
 <!-- 7b · GUEST WORDS -->
-<section class="sec on-bone rv" id="voices">
+<section class="sec on-cocoa rv" id="voices">
   <div class="wrap">
     <div class="sechead">
       <div>
@@ -522,7 +522,7 @@ textarea{resize:vertical;min-height:76px}
 </section>
 
 <!-- 8 · FIELD NOTES -->
-<section class="sec rv" id="notes" style="padding-top:0">
+<section class="sec rv" id="notes">
   <div class="wrap">
     <div class="sechead">
       <div>
