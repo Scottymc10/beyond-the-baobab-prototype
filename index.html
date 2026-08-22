@@ -15,7 +15,7 @@
 <title>Beyond the Baobab — Botswana safaris, planned from the inside</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..500,0..100,0..1;1,9..144,300..400,0..100,0..1&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    Grounds : ink (default) · cocoa (pause) · bone (light) · sage (footer)
@@ -40,8 +40,7 @@
   --edge:rgba(232,229,217,.16);
   --edge-soft:rgba(232,229,217,.08);
 
-  --display:"Fraunces",Georgia,serif;
-  --display-hero:"Cormorant Garamond",Georgia,serif;
+  --display:"Newsreader",Georgia,serif;
   --text:"Archivo","Helvetica Neue",Arial,sans-serif;
 
   --fs-display:clamp(50px,6.9vw,112px);
@@ -74,9 +73,9 @@ a{color:inherit;text-decoration:none}
 
 /* ---------- type roles ---------- */
 h1,h2,h3{
-  font-family:var(--display);font-weight:300;
-  font-variation-settings:"SOFT" 8,"WONK" 0,"opsz" 120;
-  color:var(--tx-head);letter-spacing:-.015em;margin:0;
+  font-family:var(--display);font-weight:400;
+  font-variation-settings:normal;
+  color:var(--tx-head);letter-spacing:-.01em;margin:0;
 }
 h1{font-size:var(--fs-display);line-height:1.04}
 h2{font-size:var(--fs-h2);line-height:1.08;max-width:17ch}
@@ -95,10 +94,10 @@ p:last-child{margin-bottom:0}
 .quote{
   font-family:var(--display);font-weight:300;font-size:var(--fs-quote);
   line-height:1.24;letter-spacing:-.015em;color:var(--tx-head);
-  max-width:20ch;margin:0 0 26px;font-variation-settings:"SOFT" 8,"WONK" 0,"opsz" 60;
+  max-width:20ch;margin:0 0 26px;font-variation-settings:normal;
 }
 .quote em{font-style:normal;color:var(--sand)}
-.quote.italic{font-style:italic;font-variation-settings:"SOFT" 8,"WONK" 1,"opsz" 48}
+.quote.italic{font-style:italic;font-variation-settings:normal}
 
 /* ---------- structure ---------- */
 .sec{padding:clamp(78px,9.5vw,146px) var(--pad)}
@@ -140,8 +139,8 @@ p:last-child{margin-bottom:0}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(31,42,36,.55) 0%,rgba(31,42,36,.06) 26%,rgba(31,42,36,.58) 62%,rgba(31,42,36,.88) 84%,var(--ink) 100%)}
 .hero-inner{position:relative;z-index:3;width:100%;max-width:1280px;margin:0 auto}
 .hero h1{
-  font-family:var(--display-hero);font-weight:500;font-variation-settings:normal;
-  font-size:clamp(52px,7vw,108px);line-height:1.02;letter-spacing:-.005em;
+  font-family:var(--display);font-weight:500;font-variation-settings:normal;
+  font-size:clamp(52px,7vw,108px);line-height:1.05;letter-spacing:-.01em;
   max-width:15ch;margin-bottom:24px;
 }
 .line{display:block;overflow:hidden}
@@ -174,8 +173,8 @@ figure{margin:0;position:relative}
 /* ---------- facts ---------- */
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px;padding-top:28px;border-top:1px solid var(--edge)}
 .facts strong{
-  display:block;font-family:var(--display);font-weight:300;font-size:clamp(30px,3.4vw,46px);
-  font-variation-settings:"opsz" 40;color:var(--sand);line-height:1;margin-bottom:10px;
+  display:block;font-family:var(--display);font-weight:400;font-size:clamp(30px,3.4vw,46px);
+  font-variation-settings:normal;color:var(--sand);line-height:1;margin-bottom:10px;
 }
 .facts span{display:block;font-size:var(--fs-label);letter-spacing:.11em;text-transform:uppercase;color:var(--tx-mute);line-height:1.5}
 
@@ -194,7 +193,7 @@ figure{margin:0;position:relative}
 .route{font-size:var(--fs-small);letter-spacing:.05em;color:var(--tx-mute);margin-bottom:16px;max-width:none}
 .route b{font-weight:400;color:var(--tx-lead)}
 .price{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-top:1px solid var(--edge);padding-top:16px}
-.price em{font-style:normal;font-family:var(--display);font-weight:300;font-size:clamp(20px,1.6vw,25px);font-variation-settings:"opsz" 24;color:var(--tx-head)}
+.price em{font-style:normal;font-family:var(--display);font-weight:400;font-size:clamp(20px,1.6vw,25px);font-variation-settings:normal;color:var(--tx-head)}
 .price .small{white-space:nowrap;max-width:none}
 
 /* ---------- gauge ---------- */
@@ -252,7 +251,7 @@ figure{margin:0;position:relative}
 .voice blockquote{
   margin:0;font-family:var(--display);font-weight:300;
   font-size:clamp(19px,1.7vw,24px);line-height:1.42;letter-spacing:-.005em;color:var(--tx-head);
-  font-variation-settings:"SOFT" 8,"WONK" 0,"opsz" 40;
+  font-variation-settings:normal;
 }
 .voice figcaption{margin-top:auto;padding-top:6px}
 .voice figcaption b{display:block;font-weight:400;color:var(--tx-lead);font-size:var(--fs-body)}
@@ -347,7 +346,7 @@ textarea{resize:vertical;min-height:76px}
 <section class="sec rv">
   <div class="wrap two">
     <div>
-      <p class="label mute">Why us</p>
+      <p class="label">Why us</p>
       <h2>Most agents sell camps they have never visited.</h2>
     </div>
     <div>
