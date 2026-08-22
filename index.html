@@ -144,10 +144,20 @@ p:last-child{margin-bottom:0}
 @keyframes cuebob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
 /* ---------- intro ---------- */
-.intro{max-width:1080px}
-.intro-title{font-weight:500;font-size:clamp(40px,5vw,82px);line-height:1.06;max-width:16ch;margin:0 0 28px}
+.intro-title{font-weight:500;font-size:clamp(34px,3.6vw,54px);line-height:1.07;max-width:15ch;margin:0 0 26px}
 .intro .lead{max-width:52ch}
-.intro-meta{margin-top:26px}
+.intro-meta{margin-top:24px}
+.intro-photo{aspect-ratio:3/2;width:100%;background-position:center}
+
+/* ---------- partners ---------- */
+.partners-band{padding:clamp(58px,7vw,96px) var(--pad);border-top:1px solid var(--edge-soft)}
+.partners-band .label{text-align:center;margin-bottom:clamp(30px,3.4vw,44px)}
+.partners{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(26px,4vw,64px)}
+.plogo{
+  font-family:var(--display);font-weight:400;font-size:clamp(16px,1.4vw,20px);letter-spacing:.01em;
+  color:var(--tx-mute);border:1px dashed var(--edge);padding:16px 24px;
+}
+.partners-note{text-align:center;margin:clamp(28px,3vw,40px) auto 0}
 
 /* ---------- figures ---------- */
 figure{margin:0;position:relative}
@@ -322,11 +332,14 @@ textarea{resize:vertical;min-height:76px}
 
 <!-- 1b · INTRO -->
 <section class="sec rv" id="intro">
-  <div class="wrap intro">
-    <p class="label">Owner-run · Gaborone, Botswana</p>
-    <h1 class="intro-title">A safari planned from inside Botswana.</h1>
-    <p class="lead">We are a husband-and-wife consultancy in Gaborone. Every camp on this site, we have slept in — most of them this year.</p>
-    <p class="small intro-meta">Okavango Delta · Chobe · Makgadikgadi · Namibia · Zimbabwe</p>
+  <div class="wrap two intro" style="align-items:center">
+    <div>
+      <p class="label">Owner-run · Gaborone, Botswana</p>
+      <h1 class="intro-title">A safari planned from inside Botswana.</h1>
+      <p class="lead">We are a husband-and-wife consultancy in Gaborone. Every camp on this site, we have slept in — most of them this year.</p>
+      <p class="small intro-meta">Okavango Delta · Chobe · Makgadikgadi · Namibia · Zimbabwe</p>
+    </div>
+    <figure class="fig intro-photo" style="background-image:url('assets/founders.webp')"></figure>
   </div>
 </section>
 
@@ -609,6 +622,22 @@ textarea{resize:vertical;min-height:76px}
         <span id="formnote">Prototype — this form isn’t connected yet.</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- 11 · PARTNERS -->
+<section class="partners-band rv" aria-label="Our partners">
+  <div class="wrap">
+    <p class="label">Our partners</p>
+    <div class="partners">
+      <span class="plogo">Partner logo</span>
+      <span class="plogo">Partner logo</span>
+      <span class="plogo">Partner logo</span>
+      <span class="plogo">Partner logo</span>
+      <span class="plogo">Partner logo</span>
+      <span class="plogo">Partner logo</span>
+    </div>
+    <p class="small partners-note">Prototype — drop in the real partner and lodge logos to replace these slots.</p>
   </div>
 </section>
 
