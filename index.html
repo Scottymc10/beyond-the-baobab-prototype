@@ -15,7 +15,7 @@
 <title>Beyond the Baobab — Botswana safaris, planned from the inside</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..600&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    Grounds : ink (default) · cocoa (pause) · bone (light) · sage (footer)
@@ -40,7 +40,7 @@
   --edge:rgba(232,229,217,.16);
   --edge-soft:rgba(232,229,217,.08);
 
-  --display:"Playfair Display",Georgia,serif;
+  --display:"Cormorant Garamond",Georgia,serif;
   --text:"Archivo","Helvetica Neue",Arial,sans-serif;
 
   --fs-display:clamp(50px,6.9vw,112px);
@@ -80,9 +80,9 @@ a{color:inherit;text-decoration:none}
 
 /* ---------- type roles ---------- */
 h1,h2,h3{
-  font-family:var(--display);font-weight:400;
+  font-family:var(--display);font-weight:500;
   font-variation-settings:normal;text-wrap:balance;
-  color:var(--tx-head);letter-spacing:-.01em;margin:0;
+  color:var(--tx-head);letter-spacing:-.005em;margin:0;
 }
 h1{font-size:var(--fs-display);line-height:1.04}
 h2{font-size:var(--fs-h2);line-height:1.08;max-width:17ch}
@@ -99,7 +99,7 @@ p:last-child{margin-bottom:0}
 .lead{font-size:var(--fs-lead);line-height:1.6;color:var(--tx-lead);max-width:var(--m-lead)}
 .small{font-size:var(--fs-small);line-height:1.6;color:var(--tx-mute);max-width:var(--m-small);font-variant-numeric:oldstyle-nums}
 .quote{
-  font-family:var(--display);font-weight:300;font-size:var(--fs-quote);
+  font-family:var(--display);font-weight:400;font-size:var(--fs-quote);
   line-height:1.24;letter-spacing:-.015em;color:var(--tx-head);
   max-width:20ch;margin:0 0 26px;font-variation-settings:normal;text-wrap:balance;
 }
@@ -161,7 +161,7 @@ p:last-child{margin-bottom:0}
 @keyframes cuebob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
 /* ---------- intro ---------- */
-.intro-title{font-weight:500;font-size:clamp(34px,3.6vw,54px);line-height:1.07;max-width:15ch;margin:0 0 26px}
+.intro-title{font-weight:600;font-size:clamp(34px,3.6vw,54px);line-height:1.07;max-width:15ch;margin:0 0 26px}
 .intro .lead{max-width:52ch}
 .intro-meta{margin-top:24px}
 .intro-photo{width:100%;background-position:center}
@@ -189,7 +189,7 @@ figure{margin:0;position:relative}
 /* ---------- facts ---------- */
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px;padding-top:28px;border-top:1px solid var(--edge)}
 .facts strong{
-  display:block;font-family:var(--display);font-weight:400;font-size:clamp(30px,3.4vw,46px);
+  display:block;font-family:var(--display);font-weight:500;font-size:clamp(30px,3.4vw,46px);
   font-variation-settings:normal;color:var(--sand);line-height:1;margin-bottom:10px;
 }
 .facts span{display:block;font-size:var(--fs-label);letter-spacing:.11em;text-transform:uppercase;color:var(--tx-mute);line-height:1.5}
@@ -217,7 +217,7 @@ figure{margin:0;position:relative}
 .route{font-size:var(--fs-small);letter-spacing:.05em;color:var(--tx-mute);margin-bottom:16px;max-width:none}
 .route b{font-weight:400;color:var(--tx-lead)}
 .price{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-top:1px solid var(--edge);padding-top:16px}
-.price em{font-style:normal;font-family:var(--display);font-weight:400;font-size:clamp(20px,1.6vw,25px);font-variation-settings:normal;color:var(--tx-head);font-variant-numeric:oldstyle-nums}
+.price em{font-style:normal;font-family:var(--display);font-weight:500;font-size:clamp(20px,1.6vw,25px);font-variation-settings:normal;color:var(--tx-head);font-variant-numeric:oldstyle-nums}
 .price .small{white-space:nowrap;max-width:none}
 
 /* ---------- gauge ---------- */
@@ -276,7 +276,7 @@ figure{margin:0;position:relative}
 .snav{width:clamp(44px,3.4vw,52px);height:clamp(44px,3.4vw,52px);border-radius:999px;border:1px solid var(--edge);background:transparent;color:var(--tx-head);font-family:var(--text);font-size:18px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .3s,background .3s,color .3s}
 .snav:hover{border-color:var(--sand);color:var(--sand);background:rgba(239,220,189,.08)}
 .voice blockquote{
-  margin:0;font-family:var(--display);font-weight:300;
+  margin:0;font-family:var(--display);font-weight:400;
   font-size:clamp(16px,1.3vw,19px);line-height:1.5;letter-spacing:-.003em;color:var(--tx-head);
   font-variation-settings:normal;
 }
@@ -318,6 +318,7 @@ figure{margin:0;position:relative}
 .map-svg svg{width:100%;height:auto;display:block;overflow:visible}
 .bw-outline{fill:var(--ink-raised);stroke:var(--edge);stroke-width:1.5;stroke-linejoin:round}
 .region{cursor:pointer}
+.region .ring,.region .dot,.region .rlabel{pointer-events:all}
 .region .dot{fill:var(--tx-mute);transition:fill .3s}
 .region .ring{fill:none;stroke:var(--sand);stroke-width:1.5;opacity:0;transition:opacity .3s}
 .region .rlabel{font-family:var(--text);font-size:11px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;fill:var(--tx-mute);transition:fill .3s}
