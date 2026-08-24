@@ -225,12 +225,12 @@ figure{margin:0;position:relative}
 }
 .months button:hover{color:var(--tx-head);background:rgba(62,50,49,.05)}
 .months button[aria-selected="true"]{background:var(--pula);color:var(--bone);font-weight:500}
-.chartwrap{background:linear-gradient(to bottom,rgba(59,103,110,.05),transparent)}
+.chartwrap{background:linear-gradient(to bottom,var(--water-fill),transparent)}
 .chart{display:block;width:100%;height:clamp(148px,19vw,220px)}
 .legend{display:flex;gap:28px;flex-wrap:wrap;padding:14px 0 0;border-top:1px solid var(--edge)}
 .legend span{font-size:var(--fs-label);letter-spacing:.13em;text-transform:uppercase;color:var(--tx-mute)}
 .legend i{display:inline-block;width:22px;height:0;border-top:2px solid var(--pula);vertical-align:middle;margin-right:10px}
-.legend .dot i{border-top-style:dotted;border-color:var(--tx-mute)}
+.legend .dot i{border-top-style:dotted;border-color:var(--sand)}
 .readout{display:grid;grid-template-columns:1.1fr 1fr;gap:var(--gap);padding-top:clamp(30px,3.4vw,44px)}
 @media(max-width:840px){.readout{grid-template-columns:1fr}}
 .readout > div{transition:opacity .3s ease}
@@ -480,7 +480,7 @@ textarea{resize:vertical;min-height:76px}
     <div class="chartwrap">
       <svg class="chart" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
         <path id="floodArea" fill="var(--water-fill)"></path>
-        <path id="rainPath" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 5" opacity=".45"></path>
+        <path id="rainPath" fill="none" stroke="var(--sand)" stroke-width="1.5" stroke-dasharray="3 5" opacity=".7"></path>
         <path id="floodPath" fill="none" stroke="var(--pula)" stroke-width="2"></path>
         <line id="marker" y1="0" y2="240" stroke="currentColor" stroke-width="1" opacity=".35"></line>
         <circle id="dot" r="5" fill="var(--pula)"></circle>
