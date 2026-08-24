@@ -27,11 +27,11 @@
   --ink-deep:#1F2A24;
   --ink-raised:#334339;
   --cocoa:#3E3231;
-  --sage:#495B4C;
+  --sage:#3C4C42;
   --bone:#E8E5D9;
   --sand:#EFDCBD;
-  --pula:#8FB6BA;
-  --water-fill:rgba(143,182,186,.10);
+  --pula:#7F9E93;
+  --water-fill:rgba(127,158,147,.12);
 
   --tx-head:#E8E5D9;
   --tx-lead:#DAD6C9;
@@ -69,6 +69,7 @@ body{
   text-rendering:optimizeLegibility;font-feature-settings:"kern" 1,"liga" 1;font-kerning:normal;
 }
 img{display:block;max-width:100%}
+body::after{content:"";position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.13;mix-blend-mode:soft-light;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='160'%20height='160'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.9'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px 160px}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:1.5px solid var(--sand);outline-offset:3px}
 
@@ -111,7 +112,7 @@ p:last-child{margin-bottom:0}
 .on-bone{
   background:var(--bone);
   --tx-head:#332927;--tx-lead:#4C4841;--tx-body:#55524A;--tx-mute:#6E6B60;
-  --sand:#8A6C3A;--pula:#3B676E;--water-fill:rgba(59,103,110,.13);
+  --sand:#8A6C3A;--pula:#456B60;--water-fill:rgba(69,107,96,.14);
   --edge:rgba(62,50,49,.20);--edge-soft:rgba(62,50,49,.10);
   color:var(--tx-body);
 }
@@ -184,9 +185,17 @@ figure{margin:0;position:relative}
 /* ---------- cards ---------- */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--edge-soft)}
 @media(max-width:960px){.grid3{grid-template-columns:1fr}}
-.card{background:var(--ink);padding:0 0 32px;transition:background .5s}
+.card{background:var(--ink);padding:0 0 32px;transition:background .5s;cursor:pointer}
 .card:hover{background:var(--ink-raised)}
-.card .fig{aspect-ratio:4/4.6;overflow:hidden;margin-bottom:26px}
+.card .fig{aspect-ratio:4/4.6;overflow:hidden;margin-bottom:26px;position:relative}
+.card .fig::after{
+  content:"View the route";position:absolute;left:clamp(16px,2vw,22px);bottom:16px;z-index:2;
+  font-size:var(--fs-label);font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--bone);
+  padding:9px 15px;border:1px solid rgba(232,229,217,.45);border-radius:999px;
+  background:rgba(24,32,27,.4);backdrop-filter:blur(4px);
+  opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .45s cubic-bezier(.22,1,.36,1);
+}
+.card:hover .fig::after{opacity:1;transform:translateY(0)}
 .card .fig i{display:block;position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.4s cubic-bezier(.22,1,.36,1)}
 .card:hover .fig i{transform:scale(1.05)}
 .card .body{padding:0 clamp(18px,2vw,28px)}
@@ -317,6 +326,8 @@ textarea{resize:vertical;min-height:76px}
     from{clip-path:inset(0 0 38% 0);transform:scale(1.045)}
     to{clip-path:inset(0 0 0 0);transform:scale(1)}
   }
+  .parallax{animation:parallax-pan linear;animation-timeline:view();animation-range:cover}
+  @keyframes parallax-pan{from{background-position-y:38%}to{background-position-y:62%}}
 }
 
 /* ---------- links & buttons ---------- */
@@ -334,7 +345,7 @@ textarea{resize:vertical;min-height:76px}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0ms!important;transition-duration:.001ms!important}
   .rv{opacity:1;transform:none}
-  .reveal-img{animation:none!important}
+  .reveal-img,.parallax{animation:none!important}
   html{scroll-behavior:auto}
 }
 </style>
@@ -451,7 +462,7 @@ textarea{resize:vertical;min-height:76px}
 </section>
 
 <!-- 5 · BAND -->
-<figure class="fig mono reveal-img" style="height:clamp(280px,42vw,500px);background-image:url('assets/chobe-crossing.webp');background-position:center 60%">
+<figure class="fig mono parallax" style="height:clamp(280px,42vw,500px);background-image:url('assets/chobe-crossing.webp');background-position:center 60%">
   <figcaption class="cap">The Chobe at high water — elephants crossing at dusk, September.</figcaption>
 </figure>
 
@@ -583,7 +594,7 @@ textarea{resize:vertical;min-height:76px}
 </section>
 
 <!-- 9 · BAND -->
-<figure class="fig reveal-img" style="height:clamp(280px,42vw,500px);background-image:url('assets/helicopter.webp');background-position:center 55%">
+<figure class="fig parallax" style="height:clamp(280px,42vw,500px);background-image:url('assets/helicopter.webp');background-position:center 55%">
   <figcaption class="cap">Kristy, scouting a new fly-in route over the Khwai — April 2026.</figcaption>
 </figure>
 
