@@ -15,7 +15,7 @@
 <title>Beyond the Baobab — Botswana safaris, planned from the inside</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    Grounds : ink (default) · cocoa (pause) · bone (light) · sage (footer)
@@ -41,7 +41,7 @@
   --edge-soft:rgba(232,229,217,.08);
 
   --display:"Cormorant Garamond",Georgia,serif;
-  --text:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --text:"Newsreader",Georgia,serif;
 
   --fs-display:clamp(40px,4.6vw,66px);
   --fs-h2:clamp(33px,3.9vw,58px);
@@ -133,7 +133,7 @@ p:last-child{margin-bottom:0}
 
 /* ---------- nav ---------- */
 .nav{
-  position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+  position:fixed;top:0;left:0;right:0;z-index:110;display:flex;align-items:center;
   justify-content:space-between;padding:20px var(--pad);
   border-bottom:1px solid transparent;
   transition:background .5s ease,border-color .5s ease,padding .4s ease;
@@ -147,7 +147,65 @@ p:last-child{margin-bottom:0}
 .navlinks a:hover{color:var(--sand)}
 .navcta{border:1px solid var(--edge);border-radius:999px;padding:10px 21px;color:var(--tx-head)!important;transition:border-color .3s,background .3s}
 .navcta:hover{border-color:var(--sand);background:rgba(239,220,189,.10)}
-@media(max-width:900px){.navlinks a:not(.navcta){display:none}}
+/* hamburger toggle — hidden until mobile */
+.navtoggle{
+  display:none;position:relative;z-index:2;width:46px;height:46px;
+  margin:-8px calc(-1 * clamp(6px,1vw,10px)) -8px 0;padding:0;
+  background:none;border:0;cursor:pointer;
+}
+.navtoggle span{
+  position:absolute;left:12px;right:12px;height:1.5px;background:var(--tx-head);
+  border-radius:2px;transition:transform .42s cubic-bezier(.22,1,.36,1),opacity .28s ease;
+}
+.navtoggle span:nth-child(1){top:16px}
+.navtoggle span:nth-child(2){top:22px}
+.navtoggle span:nth-child(3){top:28px}
+body.menu-open .navtoggle span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+body.menu-open .navtoggle span:nth-child(2){opacity:0}
+body.menu-open .navtoggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+@media(max-width:900px){
+  .navlinks{display:none}
+  .navtoggle{display:block}
+  body.menu-open .nav{background:transparent;border-bottom-color:transparent}
+  body.menu-open .nav::before{opacity:0}
+}
+
+/* full-screen mobile overlay menu */
+.mobilemenu{
+  position:fixed;inset:0;z-index:100;background:var(--ink-deep);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(96px,16vh,150px) var(--pad) calc(var(--pad) + env(safe-area-inset-bottom));
+  opacity:0;visibility:hidden;transform:translateY(-10px);
+  transition:opacity .5s ease,transform .55s cubic-bezier(.22,1,.36,1),visibility .55s;
+}
+.mobilemenu::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(130% 90% at 82% 4%,rgba(127,158,147,.12),transparent 58%)}
+body.menu-open{overflow:hidden}
+body.menu-open .mobilemenu{opacity:1;visibility:visible;transform:none}
+.mobilemenu-links{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:clamp(12px,3vh,24px)}
+.mobilemenu-links a{
+  font-family:var(--display);font-weight:500;font-size:clamp(31px,8.4vw,46px);
+  line-height:1;letter-spacing:-.012em;color:var(--tx-head);
+  opacity:0;transform:translateY(14px);transition:color .3s ease;
+}
+.mobilemenu-links a:hover{color:var(--sand)}
+body.menu-open .mobilemenu-links a{animation:menu-in .6s cubic-bezier(.22,1,.36,1) both}
+body.menu-open .mobilemenu-links a:nth-child(1){animation-delay:.10s}
+body.menu-open .mobilemenu-links a:nth-child(2){animation-delay:.16s}
+body.menu-open .mobilemenu-links a:nth-child(3){animation-delay:.22s}
+body.menu-open .mobilemenu-links a:nth-child(4){animation-delay:.28s}
+body.menu-open .mobilemenu-links a:nth-child(5){animation-delay:.34s}
+body.menu-open .mobilemenu-links a:nth-child(6){animation-delay:.40s}
+body.menu-open .mobilemenu-links a:nth-child(7){animation-delay:.48s}
+@keyframes menu-in{to{opacity:1;transform:none}}
+.mobilemenu-links a.navcta{
+  font-family:var(--text);font-weight:500;font-size:var(--fs-label);letter-spacing:.18em;
+  text-transform:uppercase;color:var(--tx-head);
+  border:1px solid var(--edge);border-radius:999px;padding:15px 28px;
+  margin-top:clamp(14px,3.4vh,30px);transition:border-color .3s,background .3s,color .3s}
+.mobilemenu-links a.navcta:hover{border-color:var(--sand);background:rgba(239,220,189,.10);color:var(--tx-head)}
+.mobilemenu-foot{position:relative;margin-top:clamp(36px,7.5vh,66px)}
 
 /* ---------- hero ---------- */
 .hero{position:relative;height:80svh;min-height:480px;overflow:hidden;background:var(--ink-deep)}
@@ -417,7 +475,24 @@ textarea{resize:vertical;min-height:76px}
     <a href="#notes">Field notes</a>
     <a href="#enquire" class="navcta">Enquire</a>
   </div>
+  <button class="navtoggle" id="navtoggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobilemenu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- mobile overlay menu -->
+<div class="mobilemenu" id="mobilemenu" aria-hidden="true">
+  <nav class="mobilemenu-links" aria-label="Primary">
+    <a href="#journeys">Journeys</a>
+    <a href="#when">When to come</a>
+    <a href="#where">Where we go</a>
+    <a href="#people">Who we are</a>
+    <a href="#notes">Field notes</a>
+    <a href="#faq">Questions</a>
+    <a href="#enquire" class="navcta">Enquire</a>
+  </nav>
+  <p class="small mobilemenu-foot">kristy@beyondthebaobab.com<br>Gaborone, Botswana</p>
+</div>
 
 <!-- 1 · HERO -->
 <header class="hero" id="top">
@@ -930,6 +1005,29 @@ textarea{resize:vertical;min-height:76px}
   function onScroll(){ nav.classList.toggle('solid', window.scrollY>60); }
   onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
 
+  /* Mobile overlay menu */
+  var mToggle=document.getElementById('navtoggle'),
+      mMenu=document.getElementById('mobilemenu'),
+      mOpen=false;
+  if(mToggle && mMenu){
+    var mLinks=mMenu.querySelectorAll('a');
+    function mSet(open){
+      mOpen=open;
+      document.body.classList.toggle('menu-open',open);
+      mToggle.setAttribute('aria-expanded',open?'true':'false');
+      mToggle.setAttribute('aria-label',open?'Close menu':'Open menu');
+      mMenu.setAttribute('aria-hidden',open?'false':'true');
+      if(open){ mLinks[0].focus(); } else { mToggle.focus(); }
+    }
+    mToggle.addEventListener('click',function(){ mSet(!mOpen); });
+    Array.prototype.forEach.call(mLinks,function(a){
+      a.addEventListener('click',function(){ mSet(false); });
+    });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape' && mOpen){ mSet(false); } });
+    /* close if resized up to desktop while open */
+    window.addEventListener('resize',function(){ if(mOpen && window.innerWidth>900){ mSet(false); } });
+  }
+
   var rvs=document.querySelectorAll('.rv');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){
@@ -1095,8 +1193,8 @@ textarea{resize:vertical;min-height:76px}
      rows:[['Water in the Delta','Low'],['Daytime','32–36°C'],['Best for','Makgadikgadi, families'],['Rates','Low, festive peak late'],['Watch for','Christmas fills fast']]}
   ];
 
-  var W=1200,TOP=26,BOT=210;
-  function xOf(i){ return (i+0.5)*(W/12); }
+  var GW=1200,TOP=26,BOT=210;
+  function xOf(i){ return (i+0.5)*(GW/12); }
   function yOf(v){ return BOT - v*(BOT-TOP); }
   function spline(key){
     var pts=M.map(function(d,i){return [xOf(i),yOf(d[key])];});
