@@ -43,7 +43,7 @@
   --display:"Cormorant Garamond",Georgia,serif;
   --text:"Archivo","Helvetica Neue",Arial,sans-serif;
 
-  --fs-display:clamp(50px,6.9vw,112px);
+  --fs-display:clamp(40px,4.6vw,66px);
   --fs-h2:clamp(33px,3.9vw,58px);
   --fs-h3:clamp(22px,1.9vw,29px);
   --fs-quote:clamp(27px,3vw,41px);
@@ -64,7 +64,7 @@
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;overscroll-behavior-y:none}
 body{
   margin:0;background:var(--ink);color:var(--tx-body);
-  font-family:var(--text);font-weight:300;font-size:var(--fs-body);line-height:1.65;
+  font-family:var(--text);font-weight:400;font-size:var(--fs-body);line-height:1.65;
   -webkit-font-smoothing:antialiased;overflow-x:hidden;
   text-rendering:optimizeLegibility;font-feature-settings:"kern" 1,"liga" 1;font-kerning:normal;
 }
@@ -161,7 +161,7 @@ p:last-child{margin-bottom:0}
 @keyframes cuebob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
 /* ---------- intro ---------- */
-.intro-title{font-weight:600;font-size:clamp(34px,3.6vw,54px);line-height:1.07;max-width:15ch;margin:0 0 26px}
+.intro-title{font-weight:500;line-height:1.07;max-width:15ch;margin:0 0 26px}
 .intro .lead{max-width:52ch}
 .intro-meta{margin-top:24px}
 .intro-photo{width:100%;background-position:center}
@@ -339,7 +339,7 @@ figure{margin:0;position:relative}
 label{font-size:var(--fs-label);letter-spacing:.18em;text-transform:uppercase;color:var(--tx-mute)}
 input,select,textarea{
   background:transparent;border:0;border-bottom:1px solid var(--edge);color:var(--tx-head);
-  font-family:var(--text);font-weight:300;font-size:var(--fs-body);padding:10px 0;
+  font-family:var(--text);font-weight:400;font-size:var(--fs-body);padding:10px 0;
   border-radius:0;width:100%;transition:border-color .3s;
 }
 select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--tx-mute) 50%),linear-gradient(135deg,var(--tx-mute) 50%,transparent 50%);background-position:calc(100% - 11px) 21px,calc(100% - 6px) 21px;background-size:5px 5px;background-repeat:no-repeat}
