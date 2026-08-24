@@ -66,6 +66,7 @@ body{
   margin:0;background:var(--ink);color:var(--tx-body);
   font-family:var(--text);font-weight:300;font-size:var(--fs-body);line-height:1.65;
   -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  text-rendering:optimizeLegibility;font-feature-settings:"kern" 1,"liga" 1;font-kerning:normal;
 }
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -74,14 +75,14 @@ a{color:inherit;text-decoration:none}
 /* ---------- type roles ---------- */
 h1,h2,h3{
   font-family:var(--display);font-weight:400;
-  font-variation-settings:normal;
+  font-variation-settings:normal;text-wrap:balance;
   color:var(--tx-head);letter-spacing:-.01em;margin:0;
 }
 h1{font-size:var(--fs-display);line-height:1.04}
 h2{font-size:var(--fs-h2);line-height:1.08;max-width:17ch}
 h3{font-size:var(--fs-h3);line-height:1.25;letter-spacing:-.005em}
 
-p{margin:0 0 1.15em;max-width:var(--m-body)}
+p{margin:0 0 1.15em;max-width:var(--m-body);text-wrap:pretty}
 p:last-child{margin-bottom:0}
 
 .label{
@@ -90,11 +91,11 @@ p:last-child{margin-bottom:0}
 }
 .label.mute{color:var(--tx-mute)}
 .lead{font-size:var(--fs-lead);line-height:1.6;color:var(--tx-lead);max-width:var(--m-lead)}
-.small{font-size:var(--fs-small);line-height:1.6;color:var(--tx-mute);max-width:var(--m-small)}
+.small{font-size:var(--fs-small);line-height:1.6;color:var(--tx-mute);max-width:var(--m-small);font-variant-numeric:oldstyle-nums}
 .quote{
   font-family:var(--display);font-weight:300;font-size:var(--fs-quote);
   line-height:1.24;letter-spacing:-.015em;color:var(--tx-head);
-  max-width:20ch;margin:0 0 26px;font-variation-settings:normal;
+  max-width:20ch;margin:0 0 26px;font-variation-settings:normal;text-wrap:balance;
 }
 .quote em{font-style:normal;color:var(--sand)}
 .quote.italic{font-style:italic;font-variation-settings:normal}
@@ -195,7 +196,7 @@ figure{margin:0;position:relative}
 .route{font-size:var(--fs-small);letter-spacing:.05em;color:var(--tx-mute);margin-bottom:16px;max-width:none}
 .route b{font-weight:400;color:var(--tx-lead)}
 .price{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-top:1px solid var(--edge);padding-top:16px}
-.price em{font-style:normal;font-family:var(--display);font-weight:400;font-size:clamp(20px,1.6vw,25px);font-variation-settings:normal;color:var(--tx-head)}
+.price em{font-style:normal;font-family:var(--display);font-weight:400;font-size:clamp(20px,1.6vw,25px);font-variation-settings:normal;color:var(--tx-head);font-variant-numeric:oldstyle-nums}
 .price .small{white-space:nowrap;max-width:none}
 
 /* ---------- gauge ---------- */
@@ -287,9 +288,12 @@ textarea{resize:vertical;min-height:76px}
   appearance:none;cursor:pointer;font-family:var(--text);font-size:var(--fs-label);
   letter-spacing:.18em;text-transform:uppercase;font-weight:500;
   background:var(--sand);color:var(--cocoa);border:1px solid var(--sand);
-  border-radius:999px;padding:16px 34px;transition:background .3s,color .3s;
+  border-radius:999px;padding:16px 34px;transition:color .35s ease;
+  position:relative;overflow:hidden;z-index:0;
 }
-.btn:hover{background:transparent;color:var(--sand)}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--cocoa);transform:scaleX(0);transform-origin:right;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.btn:hover{color:var(--sand)}
+.btn:hover::before{transform:scaleX(1);transform-origin:left}
 #formnote{font-size:var(--fs-small);color:var(--tx-mute);max-width:32ch;line-height:1.5}
 
 /* ---------- footer ---------- */
@@ -306,9 +310,25 @@ textarea{resize:vertical;min-height:76px}
 /* ---------- reveal ---------- */
 .rv{opacity:0;transform:translateY(20px);transition:opacity .95s cubic-bezier(.22,1,.36,1),transform .95s cubic-bezier(.22,1,.36,1)}
 .rv.in{opacity:1;transform:none}
+.img-unveil{clip-path:inset(0 0 100% 0);transform:scale(1.06);transition:clip-path 1.2s cubic-bezier(.22,1,.36,1),transform 1.5s cubic-bezier(.22,1,.36,1)}
+.img-unveil.in{clip-path:inset(0 0 0 0);transform:scale(1)}
+
+/* ---------- links & buttons ---------- */
+.navlinks a:not(.navcta){position:relative}
+.navlinks a:not(.navcta)::after{content:"";position:absolute;left:0;bottom:-4px;height:1px;width:100%;background:var(--sand);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.navlinks a:not(.navcta):hover::after{transform:scaleX(1)}
+.foot nav a{width:max-content;position:relative}
+.foot nav a::after{content:"";position:absolute;left:0;bottom:2px;height:1px;width:100%;background:var(--sand);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.foot nav a:hover::after{transform:scaleX(1)}
+.link-more{position:relative;color:var(--tx-lead);border-bottom:1px solid var(--edge);padding-bottom:5px;transition:border-color .3s,color .3s}
+.link-more:hover{color:var(--tx-head);border-color:var(--sand)}
+.link-more span{display:inline-block;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.link-more:hover span{transform:translateX(5px)}
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0ms!important;transition-duration:.001ms!important}
   .rv{opacity:1;transform:none}
+  .img-unveil{clip-path:none;transform:none}
   html{scroll-behavior:auto}
 }
 </style>
@@ -341,7 +361,7 @@ textarea{resize:vertical;min-height:76px}
       <p class="lead">We are a husband-and-wife consultancy in Gaborone. Every camp on this site, we have slept in — most of them this year.</p>
       <p class="small intro-meta">Okavango Delta · Chobe · Makgadikgadi · Namibia · Zimbabwe</p>
     </div>
-    <figure class="fig intro-photo" style="background-image:url('assets/founders.webp')"></figure>
+    <figure class="fig intro-photo img-unveil" style="background-image:url('assets/founders.webp')"></figure>
   </div>
 </section>
 
@@ -349,7 +369,7 @@ textarea{resize:vertical;min-height:76px}
 <section class="sec rv">
   <div class="wrap two">
     <div>
-      <p class="label">Why us</p>
+      <p class="label">01 — Why us</p>
       <h2>Most agents sell camps they have never visited.</h2>
     </div>
     <div>
@@ -368,7 +388,7 @@ textarea{resize:vertical;min-height:76px}
   <div class="wrap">
     <div class="sechead">
       <div>
-        <p class="label">Sample journeys</p>
+        <p class="label">02 — Sample journeys</p>
         <h2>Three we would book ourselves</h2>
       </div>
       <p class="small">Starting points, not packages. Every route is rebuilt around your dates and your pace.</p>
@@ -414,9 +434,9 @@ textarea{resize:vertical;min-height:76px}
 <!-- 4 · THE ARGUMENT -->
 <section class="sec on-cocoa rv">
   <div class="wrap two" style="align-items:center">
-    <figure class="fig mono" style="aspect-ratio:4/5;background-image:url('assets/leopard.webp')"></figure>
+    <figure class="fig mono img-unveil" style="aspect-ratio:4/5;background-image:url('assets/leopard.webp')"></figure>
     <div>
-      <p class="label">The thing nobody tells you</p>
+      <p class="label">03 — The thing nobody tells you</p>
       <p class="quote">A camp is a building. What you are actually buying is <em>the guide, the concession and the month.</em></p>
       <p class="lead">Two lodges twenty minutes apart can offer completely different safaris, because one holds a private concession where you may drive off-road at night and the other sits in a public park where you may not. That distinction is worth more than any thread count.</p>
       <p class="label mute" style="margin:26px 0 0">Kristy Briscoe — founder</p>
@@ -425,7 +445,7 @@ textarea{resize:vertical;min-height:76px}
 </section>
 
 <!-- 5 · BAND -->
-<figure class="fig mono rv" style="height:clamp(280px,42vw,500px);background-image:url('assets/chobe-crossing.webp');background-position:center 60%">
+<figure class="fig mono img-unveil" style="height:clamp(280px,42vw,500px);background-image:url('assets/chobe-crossing.webp');background-position:center 60%">
   <figcaption class="cap">The Chobe at high water — elephants crossing at dusk, September.</figcaption>
 </figure>
 
@@ -434,7 +454,7 @@ textarea{resize:vertical;min-height:76px}
   <div class="wrap">
     <div class="sechead">
       <div>
-        <p class="label">When to come</p>
+        <p class="label">04 — When to come</p>
         <h2>The rain falls in Angola in January. It reaches the Delta in June.</h2>
       </div>
       <p class="small">Botswana floods in its driest month. That one fact decides your dates, your camps and a third of your budget.</p>
@@ -472,9 +492,9 @@ textarea{resize:vertical;min-height:76px}
 <section class="sec rv" id="people">
   <div class="wrap">
     <div class="two" style="align-items:center">
-      <figure class="fig" style="aspect-ratio:4/5;background-image:url('assets/guide-guest.webp');background-position:center 20%"></figure>
+      <figure class="fig img-unveil" style="aspect-ratio:4/5;background-image:url('assets/guide-guest.webp');background-position:center 20%"></figure>
       <div>
-        <p class="label">Who we are</p>
+        <p class="label">05 — Who we are</p>
         <p class="quote italic">“I will tell you when a camp isn’t worth it. That is the entire reason to use someone who lives here.”</p>
         <p class="lead">Beyond the Baobab is Kristy and James Briscoe — a husband-and-wife team who live in Gaborone, plan every journey by hand and answer their own phones seven days a week. No consultants, no queue, no desk on another continent.</p>
         <p class="label mute" style="margin:26px 0 0">Kristy &amp; James Briscoe — founders</p>
@@ -501,7 +521,7 @@ textarea{resize:vertical;min-height:76px}
   <div class="wrap">
     <div class="sechead">
       <div>
-        <p class="label">Guest words</p>
+        <p class="label">06 — Guest words</p>
         <h2>The trip they didn’t want to end.</h2>
       </div>
       <p class="small">Sample quotes for the prototype — real guest words will replace these.</p>
@@ -528,10 +548,10 @@ textarea{resize:vertical;min-height:76px}
   <div class="wrap">
     <div class="sechead">
       <div>
-        <p class="label">Field notes</p>
+        <p class="label">07 — Field notes</p>
         <h2>What we saw this season</h2>
       </div>
-      <a href="#" class="small" style="border-bottom:1px solid var(--edge);padding-bottom:5px">All notes →</a>
+      <a href="#" class="small link-more">All notes <span>→</span></a>
     </div>
     <div class="grid3">
       <a class="note" href="#">
@@ -557,7 +577,7 @@ textarea{resize:vertical;min-height:76px}
 </section>
 
 <!-- 9 · BAND -->
-<figure class="fig rv" style="height:clamp(280px,42vw,500px);background-image:url('assets/helicopter.webp');background-position:center 55%">
+<figure class="fig img-unveil" style="height:clamp(280px,42vw,500px);background-image:url('assets/helicopter.webp');background-position:center 55%">
   <figcaption class="cap">Kristy, scouting a new fly-in route over the Khwai — April 2026.</figcaption>
 </figure>
 
@@ -680,7 +700,7 @@ textarea{resize:vertical;min-height:76px}
   function onScroll(){ nav.classList.toggle('solid', window.scrollY>60); }
   onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
 
-  var rvs=document.querySelectorAll('.rv');
+  var rvs=document.querySelectorAll('.rv, .img-unveil');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){
       es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
