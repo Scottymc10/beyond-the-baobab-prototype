@@ -312,6 +312,24 @@ figure{margin:0;position:relative}
 .faq summary:hover{color:var(--sand)}
 .faq details p{margin:0;padding:0 0 clamp(20px,2.4vw,28px);max-width:74ch}
 
+/* ---------- where we go / map ---------- */
+.map{display:grid;grid-template-columns:1.15fr 1fr;gap:var(--gap);align-items:center;margin-top:clamp(30px,3.4vw,44px)}
+@media(max-width:840px){.map{grid-template-columns:1fr;gap:clamp(30px,5vw,48px)}}
+.map-svg svg{width:100%;height:auto;display:block;overflow:visible}
+.bw-outline{fill:var(--ink-raised);stroke:var(--edge);stroke-width:1.5;stroke-linejoin:round}
+.region{cursor:pointer}
+.region .dot{fill:var(--tx-mute);transition:fill .3s}
+.region .ring{fill:none;stroke:var(--sand);stroke-width:1.5;opacity:0;transition:opacity .3s}
+.region .rlabel{font-family:var(--text);font-size:11px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;fill:var(--tx-mute);transition:fill .3s}
+.region:hover .dot,.region.sel .dot{fill:var(--sand)}
+.region:hover .rlabel,.region.sel .rlabel{fill:var(--tx-head)}
+.region.sel .ring{opacity:1}
+.region:focus{outline:none}
+.region:focus .ring{opacity:1;stroke:var(--tx-head)}
+.map-read h3{margin-bottom:14px}
+.map-read #wBody{margin:0;max-width:46ch}
+.map-read .rows{margin-top:22px}
+
 /* ---------- enquire ---------- */
 .fields{display:grid;grid-template-columns:1fr 1fr;gap:22px 24px}
 @media(max-width:560px){.fields{grid-template-columns:1fr}}
@@ -542,13 +560,59 @@ textarea{resize:vertical;min-height:76px}
   </div>
 </section>
 
+<!-- 6b · WHERE WE GO (MAP) -->
+<section class="sec rv" id="where">
+  <div class="wrap">
+    <div class="sechead">
+      <div>
+        <p class="label">05 — Where we go</p>
+        <h2>Five regions, one country, wildly different safaris.</h2>
+      </div>
+      <p class="small">Tap a region to see what it’s for, and when it’s at its best.</p>
+    </div>
+    <div class="map">
+      <div class="map-svg">
+        <svg viewBox="0 0 520 520" role="group" aria-label="Map of Botswana safari regions">
+          <path class="bw-outline" d="M120,150 L200,140 L280,150 L332,150 L362,118 L382,104 L402,172 L416,250 L430,322 L446,382 L456,430 L402,456 L330,470 L250,472 L180,456 L120,410 L106,322 L110,230 Z"/>
+          <g class="region" data-key="delta" tabindex="0" role="button" aria-label="Okavango Delta">
+            <circle class="ring" cx="215" cy="215" r="15"/><circle class="dot" cx="215" cy="215" r="5.5"/>
+            <text class="rlabel" x="215" y="238" text-anchor="middle">Delta</text>
+          </g>
+          <g class="region" data-key="chobe" tabindex="0" role="button" aria-label="Chobe and Linyanti">
+            <circle class="ring" cx="332" cy="168" r="15"/><circle class="dot" cx="332" cy="168" r="5.5"/>
+            <text class="rlabel" x="332" y="152" text-anchor="middle">Chobe</text>
+          </g>
+          <g class="region" data-key="makgadikgadi" tabindex="0" role="button" aria-label="Makgadikgadi and Nxai Pans">
+            <circle class="ring" cx="318" cy="258" r="15"/><circle class="dot" cx="318" cy="258" r="5.5"/>
+            <text class="rlabel" x="332" y="262" text-anchor="start">Makgadikgadi</text>
+          </g>
+          <g class="region" data-key="kalahari" tabindex="0" role="button" aria-label="Central Kalahari">
+            <circle class="ring" cx="240" cy="330" r="15"/><circle class="dot" cx="240" cy="330" r="5.5"/>
+            <text class="rlabel" x="240" y="353" text-anchor="middle">Kalahari</text>
+          </g>
+          <g class="region" data-key="tuli" tabindex="0" role="button" aria-label="Tuli Block">
+            <circle class="ring" cx="414" cy="392" r="15"/><circle class="dot" cx="414" cy="392" r="5.5"/>
+            <text class="rlabel" x="414" y="415" text-anchor="middle">Tuli</text>
+          </g>
+        </svg>
+      </div>
+      <div class="map-read">
+        <h3 id="wTitle">Okavango Delta</h3>
+        <p id="wBody"></p>
+        <div class="tags" id="wTags"></div>
+        <div class="rows" id="wRows"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 7 · WHO WE ARE -->
 <section class="sec rv" id="people">
   <div class="wrap">
     <div class="two split img-right">
       <figure class="fig reveal-img" style="background-image:url('assets/guide-guest.webp');background-position:center 20%"></figure>
       <div>
-        <p class="label">05 — Who we are</p>
+        <p class="label">06 — Who we are</p>
         <p class="quote italic">“I will tell you when a camp isn’t worth it. That is the entire reason to use someone who lives here.”</p>
         <p class="lead">Beyond the Baobab is Kristy and James Briscoe — a husband-and-wife team who live in Gaborone, plan every journey by hand and answer their own phones seven days a week. No consultants, no queue, no desk on another continent.</p>
         <p class="label mute" style="margin:26px 0 0">Kristy &amp; James Briscoe — founders</p>
@@ -575,7 +639,7 @@ textarea{resize:vertical;min-height:76px}
   <div class="wrap two split">
     <figure class="fig reveal-img" style="background-image:url('assets/conservation.webp');background-position:center"></figure>
     <div>
-      <p class="label">06 — Our stake in it</p>
+      <p class="label">07 — Our stake in it</p>
       <h2>We don’t just sell Botswana. We have built a business inside it.</h2>
       <p class="lead" style="margin-top:24px">Co-founding a citizen-owned lodge in the Delta changes how we read every camp we send you to. We know which concessions genuinely protect their wildlife, which put real money back into the community alongside them, and which only say they do — and we tell you plainly when one falls short.</p>
       <p class="quote italic" style="margin-top:30px">“Botswana has always been world class. I’m just making sure the world knows it.”</p>
@@ -589,7 +653,7 @@ textarea{resize:vertical;min-height:76px}
   <div class="wrap">
     <div class="sechead">
       <div>
-        <p class="label">07 — Guest words</p>
+        <p class="label">08 — Guest words</p>
         <h2>The trip they didn’t want to end.</h2>
         <p class="small" style="margin-top:14px">Recent guests, in their own words.</p>
       </div>
@@ -632,7 +696,7 @@ textarea{resize:vertical;min-height:76px}
   <div class="wrap">
     <div class="sechead">
       <div>
-        <p class="label">08 — Field notes</p>
+        <p class="label">09 — Field notes</p>
         <h2>What we saw this season</h2>
       </div>
       <a href="#" class="small link-more">All notes <span>→</span></a>
@@ -921,6 +985,50 @@ textarea{resize:vertical;min-height:76px}
     vTrack.addEventListener('pointerleave',vStart);
     vTrack.addEventListener('touchstart',vStop,{passive:true});
     vStart();
+  }
+
+  /* Where we go — region map */
+  if(document.getElementById('wTitle')){
+    var W={
+      delta:{name:'Okavango Delta',
+        body:'The flagship. A vast inland delta that floods in the dry season, so you explore by mokoro and boat as much as by vehicle. The classic Botswana safari, and where most first trips centre.',
+        tags:['Water & land','First-timers','Peak Jun–Sep'],
+        rows:[['Best months','June – September'],['Getting there','Fly to Maun, then light aircraft'],['Signature','Poling a mokoro at dawn'],['Good for','The complete Delta trip']]},
+      chobe:{name:'Chobe & Linyanti',
+        body:'The far north, defined by its rivers, with some of the densest elephant numbers on earth, best seen from a boat at eye level. Pairs naturally with Victoria Falls across the border.',
+        tags:['Elephants','Boat safaris','Peak Jul–Oct'],
+        rows:[['Best months','July – October'],['Getting there','Fly to Kasane'],['Signature','A sundowner cruise among elephants'],['Good for','Adding Victoria Falls']]},
+      makgadikgadi:{name:'Makgadikgadi & Nxai Pans',
+        body:'Salt pans the size of a small country. In the green season they draw Botswana’s zebra migration and breeding flamingos; in the dry, it’s meerkats, quad bikes and horizons that go forever.',
+        tags:['Zebra migration','Green season','Dec–Apr'],
+        rows:[['Best months','December – April (migration)'],['Getting there','Fly to Maun'],['Signature','Sleeping out on the pans'],['Good for','Something different']]},
+      kalahari:{name:'Central Kalahari',
+        body:'Desert on a giant scale — big skies, black-maned lions and a deep sense of remoteness. It comes alive in the green season, when the pans fill and the plains game arrives.',
+        tags:['Desert','Remote','Green season'],
+        rows:[['Best months','December – April'],['Getting there','Fly to Maun, then charter'],['Signature','Black-maned Kalahari lions'],['Good for','Escaping the crowds']]},
+      tuli:{name:'Tuli Block',
+        body:'The eastern corner, where the Limpopo meets dramatic rock and riverine forest. Big elephant herds and a landscape unlike anywhere else in the country. Quiet, and often overlooked.',
+        tags:['Landscapes','Quiet','Apr–Oct'],
+        rows:[['Best months','April – October'],['Getting there','Charter, or via Polokwane'],['Signature','Elephants among the rocks'],['Good for','Photographers, walkers']]}
+    };
+    var wTitle=document.getElementById('wTitle'),wBody=document.getElementById('wBody'),
+        wTags=document.getElementById('wTags'),wRows=document.getElementById('wRows'),
+        regions=document.querySelectorAll('.region');
+    function wSelect(key){
+      var d=W[key]; if(!d) return;
+      Array.prototype.forEach.call(regions,function(g){ g.classList.toggle('sel', g.getAttribute('data-key')===key); });
+      wTitle.textContent=d.name;
+      wBody.textContent=d.body;
+      wTags.innerHTML=d.tags.map(function(t){return '<span class="tag">'+t+'</span>';}).join('');
+      wRows.innerHTML=d.rows.map(function(r){return '<div><span>'+r[0]+'</span><span>'+r[1]+'</span></div>';}).join('');
+    }
+    Array.prototype.forEach.call(regions,function(g){
+      var key=g.getAttribute('data-key');
+      g.addEventListener('click',function(){wSelect(key);});
+      g.addEventListener('mouseenter',function(){wSelect(key);});
+      g.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();wSelect(key);} });
+    });
+    wSelect('delta');
   }
 
   var M=[
