@@ -245,6 +245,7 @@ body.menu-open .mobilemenu-links a:nth-child(7){animation-delay:.48s}
 figure{margin:0;position:relative}
 .fig{background:var(--ink-raised) center/cover no-repeat;border-radius:var(--radius);overflow:hidden}
 .fig video{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fig.low-crop video{object-position:center 82%}
 .mono{filter:grayscale(1) contrast(1.07) brightness(.95)}
 .cap{
   position:absolute;left:0;right:0;bottom:0;z-index:2;margin:0;
@@ -754,7 +755,7 @@ textarea{resize:vertical;min-height:76px}
 <!-- 5b · CONSERVATION -->
 <section class="sec on-bone rv" id="conservation">
   <div class="wrap two split">
-    <figure class="fig reveal-img">
+    <figure class="fig reveal-img low-crop">
       <video autoplay muted loop playsinline preload="metadata" poster="assets/card-lions-poster.jpg">
         <source src="assets/card-lions.webm" type="video/webm">
         <source src="assets/card-lions.mp4" type="video/mp4">
