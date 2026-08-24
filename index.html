@@ -257,9 +257,12 @@ figure{margin:0;position:relative}
 .bios p{max-width:38ch;margin:0}
 
 /* ---------- voices ---------- */
-.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap) clamp(28px,3.4vw,56px)}
-@media(max-width:840px){.voices{grid-template-columns:1fr}}
-.voice{margin:0;display:flex;flex-direction:column;gap:22px;min-height:100%}
+.voices{display:flex;gap:clamp(20px,2.4vw,34px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding-bottom:2px;scrollbar-width:none}
+.voices::-webkit-scrollbar{display:none}
+.voice{margin:0;flex:0 0 min(430px,82vw);scroll-snap-align:start;display:flex;flex-direction:column;gap:22px}
+.slider-nav{display:flex;gap:12px;flex-shrink:0}
+.snav{width:clamp(44px,3.4vw,52px);height:clamp(44px,3.4vw,52px);border-radius:999px;border:1px solid var(--edge);background:transparent;color:var(--tx-head);font-family:var(--text);font-size:18px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .3s,background .3s,color .3s}
+.snav:hover{border-color:var(--sand);color:var(--sand);background:rgba(239,220,189,.08)}
 .voice blockquote{
   margin:0;font-family:var(--display);font-weight:300;
   font-size:clamp(16px,1.3vw,19px);line-height:1.5;letter-spacing:-.003em;color:var(--tx-head);
@@ -561,8 +564,12 @@ textarea{resize:vertical;min-height:76px}
       <div>
         <p class="label">07 — Guest words</p>
         <h2>The trip they didn’t want to end.</h2>
+        <p class="small" style="margin-top:14px">Recent guests, in their own words.</p>
       </div>
-      <p class="small">Recent guests, in their own words.</p>
+      <div class="slider-nav">
+        <button class="snav" type="button" data-dir="-1" aria-label="Previous testimonial">&#8592;</button>
+        <button class="snav" type="button" data-dir="1" aria-label="Next testimonial">&#8594;</button>
+      </div>
     </div>
     <div class="voices">
       <figure class="voice">
@@ -813,6 +820,34 @@ textarea{resize:vertical;min-height:76px}
     window.addEventListener('scroll',pxOnScroll,{passive:true});
     window.addEventListener('resize',pxOnScroll,{passive:true});
     pxUpdate();
+  }
+
+  /* Testimonials slider */
+  var vTrack=document.querySelector('.voices');
+  if(vTrack){
+    var vNav=document.querySelectorAll('.snav');
+    function vStep(){
+      var card=vTrack.querySelector('.voice');
+      var gap=parseFloat(getComputedStyle(vTrack).columnGap)||24;
+      return card?card.getBoundingClientRect().width+gap:vTrack.clientWidth*0.85;
+    }
+    function vNext(){
+      if(vTrack.scrollLeft+vTrack.clientWidth>=vTrack.scrollWidth-4){ vTrack.scrollTo({left:0,behavior:'smooth'}); }
+      else { vTrack.scrollBy({left:vStep(),behavior:'smooth'}); }
+    }
+    var vTimer=null, vReduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function vStop(){ if(vTimer){ window.clearInterval(vTimer); vTimer=null; } }
+    function vStart(){ vStop(); if(!vReduce){ vTimer=window.setInterval(vNext,6000); } }
+    Array.prototype.forEach.call(vNav,function(b){
+      b.addEventListener('click',function(){
+        vTrack.scrollBy({left:vStep()*parseInt(b.getAttribute('data-dir'),10),behavior:'smooth'});
+        vStart();
+      });
+    });
+    vTrack.addEventListener('pointerenter',vStop);
+    vTrack.addEventListener('pointerleave',vStart);
+    vTrack.addEventListener('touchstart',vStop,{passive:true});
+    vStart();
   }
 
   var M=[
