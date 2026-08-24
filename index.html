@@ -107,6 +107,14 @@ p:last-child{margin-bottom:0}
 .sechead{display:flex;flex-wrap:wrap;gap:24px var(--gap);align-items:flex-end;justify-content:space-between;margin-bottom:clamp(40px,5vw,68px)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start}
 @media(max-width:840px){.two{grid-template-columns:1fr}}
+/* split: image column always fills the text column's height — no floating */
+.two.split{align-items:stretch}
+.two.split > figure{min-height:clamp(300px,38vh,460px)}
+.two.split.img-right > figure{order:2}
+@media(max-width:840px){
+  .two.split > figure{min-height:clamp(260px,58vw,400px)}
+  .two.split.img-right > figure{order:0}
+}
 
 .on-cocoa{background:var(--cocoa)}
 .on-bone{
@@ -151,7 +159,7 @@ p:last-child{margin-bottom:0}
 .intro-title{font-weight:500;font-size:clamp(34px,3.6vw,54px);line-height:1.07;max-width:15ch;margin:0 0 26px}
 .intro .lead{max-width:52ch}
 .intro-meta{margin-top:24px}
-.intro-photo{aspect-ratio:3/2;width:100%;background-position:center}
+.intro-photo{width:100%;background-position:center}
 
 /* ---------- partners ---------- */
 .partners-band{padding:clamp(58px,7vw,96px) var(--pad);border-top:1px solid var(--edge-soft)}
@@ -379,7 +387,7 @@ textarea{resize:vertical;min-height:76px}
 
 <!-- 1b · INTRO -->
 <section class="sec rv" id="intro">
-  <div class="wrap two intro" style="align-items:center">
+  <div class="wrap two intro split">
     <div>
       <p class="label">Owner-run · Gaborone, Botswana</p>
       <h1 class="intro-title">A safari planned from inside Botswana.</h1>
@@ -458,8 +466,8 @@ textarea{resize:vertical;min-height:76px}
 
 <!-- 4 · THE ARGUMENT -->
 <section class="sec on-cocoa rv">
-  <div class="wrap two" style="align-items:center">
-    <figure class="fig mono reveal-img" style="aspect-ratio:4/5;background-image:url('assets/leopard.webp')"></figure>
+  <div class="wrap two split">
+    <figure class="fig mono reveal-img" style="background-image:url('assets/leopard.webp')"></figure>
     <div>
       <p class="label">03 — The thing nobody tells you</p>
       <p class="quote">Most safari operators have never set foot in the camps they’re selling you. <em>We have. We live here.</em></p>
@@ -516,8 +524,8 @@ textarea{resize:vertical;min-height:76px}
 <!-- 7 · WHO WE ARE -->
 <section class="sec rv" id="people">
   <div class="wrap">
-    <div class="two" style="align-items:center">
-      <figure class="fig reveal-img" style="aspect-ratio:4/5;background-image:url('assets/guide-guest.webp');background-position:center 20%"></figure>
+    <div class="two split img-right">
+      <figure class="fig reveal-img" style="background-image:url('assets/guide-guest.webp');background-position:center 20%"></figure>
       <div>
         <p class="label">05 — Who we are</p>
         <p class="quote italic">“I will tell you when a camp isn’t worth it. That is the entire reason to use someone who lives here.”</p>
@@ -543,8 +551,8 @@ textarea{resize:vertical;min-height:76px}
 
 <!-- 5b · CONSERVATION -->
 <section class="sec rv" id="conservation">
-  <div class="wrap two" style="align-items:center">
-    <figure class="fig reveal-img" style="aspect-ratio:3/2;background-image:url('assets/conservation.webp');background-position:center"></figure>
+  <div class="wrap two split">
+    <figure class="fig reveal-img" style="background-image:url('assets/conservation.webp');background-position:center"></figure>
     <div>
       <p class="label">06 — Our stake in it</p>
       <h2>We don’t just sell Botswana. We have built a business inside it.</h2>
