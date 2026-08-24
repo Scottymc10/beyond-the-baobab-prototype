@@ -326,8 +326,6 @@ textarea{resize:vertical;min-height:76px}
     from{clip-path:inset(0 0 38% 0);transform:scale(1.045)}
     to{clip-path:inset(0 0 0 0);transform:scale(1)}
   }
-  .parallax{animation:parallax-pan linear;animation-timeline:view();animation-range:cover}
-  @keyframes parallax-pan{from{background-position-y:38%}to{background-position-y:62%}}
 }
 
 /* ---------- links & buttons ---------- */
@@ -345,7 +343,7 @@ textarea{resize:vertical;min-height:76px}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0ms!important;transition-duration:.001ms!important}
   .rv{opacity:1;transform:none}
-  .reveal-img,.parallax{animation:none!important}
+  .reveal-img{animation:none!important}
   html{scroll-behavior:auto}
 }
 </style>
@@ -724,6 +722,28 @@ textarea{resize:vertical;min-height:76px}
     },{threshold:.06,rootMargin:'0px 0px -5% 0px'});
     Array.prototype.forEach.call(rvs,function(el){io.observe(el);});
   } else { Array.prototype.forEach.call(rvs,function(el){el.classList.add('in');}); }
+
+  /* Parallax on full-bleed bands — JS so it works in every browser */
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pxEls=document.querySelectorAll('.parallax');
+  if(!reduce && pxEls.length){
+    var pxTick=false;
+    function pxUpdate(){
+      var vh=window.innerHeight||document.documentElement.clientHeight;
+      Array.prototype.forEach.call(pxEls,function(el){
+        var r=el.getBoundingClientRect();
+        if(r.bottom<0||r.top>vh) { pxTick=false; return; }
+        var progress=(vh-r.top)/(vh+r.height);
+        progress=progress<0?0:progress>1?1:progress;
+        el.style.backgroundPositionY=(22+progress*56)+'%';
+      });
+      pxTick=false;
+    }
+    function pxOnScroll(){ if(!pxTick){ pxTick=true; window.requestAnimationFrame(pxUpdate); } }
+    window.addEventListener('scroll',pxOnScroll,{passive:true});
+    window.addEventListener('resize',pxOnScroll,{passive:true});
+    pxUpdate();
+  }
 
   var M=[
     {m:'Jan',name:'January',flood:.28,rain:.92,
