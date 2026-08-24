@@ -310,6 +310,14 @@ textarea{resize:vertical;min-height:76px}
 /* ---------- reveal ---------- */
 .rv{opacity:0;transform:translateY(20px);transition:opacity .95s cubic-bezier(.22,1,.36,1),transform .95s cubic-bezier(.22,1,.36,1)}
 .rv.in{opacity:1;transform:none}
+/* image unveil — CSS scroll-driven, fail-safe: unsupported browsers just show the image */
+@supports (animation-timeline: view()){
+  .reveal-img{animation:reveal-img linear both;animation-timeline:view();animation-range:entry 15% entry 90%}
+  @keyframes reveal-img{
+    from{clip-path:inset(0 0 38% 0);transform:scale(1.045)}
+    to{clip-path:inset(0 0 0 0);transform:scale(1)}
+  }
+}
 
 /* ---------- links & buttons ---------- */
 .navlinks a:not(.navcta){position:relative}
@@ -326,6 +334,7 @@ textarea{resize:vertical;min-height:76px}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0ms!important;transition-duration:.001ms!important}
   .rv{opacity:1;transform:none}
+  .reveal-img{animation:none!important}
   html{scroll-behavior:auto}
 }
 </style>
@@ -358,7 +367,7 @@ textarea{resize:vertical;min-height:76px}
       <p class="lead">We are a husband-and-wife consultancy in Gaborone. Every camp on this site, we have slept in — most of them this year.</p>
       <p class="small intro-meta">Okavango Delta · Chobe · Makgadikgadi · Namibia · Zimbabwe</p>
     </div>
-    <figure class="fig intro-photo" style="background-image:url('assets/founders.webp')"></figure>
+    <figure class="fig intro-photo reveal-img" style="background-image:url('assets/founders.webp')"></figure>
   </div>
 </section>
 
@@ -431,7 +440,7 @@ textarea{resize:vertical;min-height:76px}
 <!-- 4 · THE ARGUMENT -->
 <section class="sec on-cocoa rv">
   <div class="wrap two" style="align-items:center">
-    <figure class="fig mono" style="aspect-ratio:4/5;background-image:url('assets/leopard.webp')"></figure>
+    <figure class="fig mono reveal-img" style="aspect-ratio:4/5;background-image:url('assets/leopard.webp')"></figure>
     <div>
       <p class="label">03 — The thing nobody tells you</p>
       <p class="quote">A camp is a building. What you are actually buying is <em>the guide, the concession and the month.</em></p>
@@ -442,7 +451,7 @@ textarea{resize:vertical;min-height:76px}
 </section>
 
 <!-- 5 · BAND -->
-<figure class="fig mono rv" style="height:clamp(280px,42vw,500px);background-image:url('assets/chobe-crossing.webp');background-position:center 60%">
+<figure class="fig mono reveal-img" style="height:clamp(280px,42vw,500px);background-image:url('assets/chobe-crossing.webp');background-position:center 60%">
   <figcaption class="cap">The Chobe at high water — elephants crossing at dusk, September.</figcaption>
 </figure>
 
@@ -489,7 +498,7 @@ textarea{resize:vertical;min-height:76px}
 <section class="sec rv" id="people">
   <div class="wrap">
     <div class="two" style="align-items:center">
-      <figure class="fig" style="aspect-ratio:4/5;background-image:url('assets/guide-guest.webp');background-position:center 20%"></figure>
+      <figure class="fig reveal-img" style="aspect-ratio:4/5;background-image:url('assets/guide-guest.webp');background-position:center 20%"></figure>
       <div>
         <p class="label">05 — Who we are</p>
         <p class="quote italic">“I will tell you when a camp isn’t worth it. That is the entire reason to use someone who lives here.”</p>
@@ -574,7 +583,7 @@ textarea{resize:vertical;min-height:76px}
 </section>
 
 <!-- 9 · BAND -->
-<figure class="fig rv" style="height:clamp(280px,42vw,500px);background-image:url('assets/helicopter.webp');background-position:center 55%">
+<figure class="fig reveal-img" style="height:clamp(280px,42vw,500px);background-image:url('assets/helicopter.webp');background-position:center 55%">
   <figcaption class="cap">Kristy, scouting a new fly-in route over the Khwai — April 2026.</figcaption>
 </figure>
 
