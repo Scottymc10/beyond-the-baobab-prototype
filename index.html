@@ -157,10 +157,9 @@ p:last-child{margin-bottom:0}
 .partners-band{padding:clamp(58px,7vw,96px) var(--pad);border-top:1px solid var(--edge-soft)}
 .partners-band .label{text-align:center;margin-bottom:clamp(30px,3.4vw,44px)}
 .partners{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(26px,4vw,64px)}
-.plogo{
-  font-family:var(--display);font-weight:400;font-size:clamp(17px,1.5vw,22px);letter-spacing:.01em;
-  color:var(--tx-lead);opacity:.82;
-}
+.plogo{display:flex;align-items:center;justify-content:center;height:clamp(44px,4.6vw,60px)}
+.plogo img{max-height:100%;max-width:clamp(120px,14vw,170px);width:auto;height:auto;object-fit:contain;opacity:.8;transition:opacity .3s}
+.plogo:hover img{opacity:1}
 .partners-note{text-align:center;margin:clamp(28px,3vw,40px) auto 0}
 
 /* ---------- figures ---------- */
@@ -744,14 +743,13 @@ textarea{resize:vertical;min-height:76px}
   <div class="wrap">
     <p class="label">Our partners</p>
     <div class="partners">
-      <span class="plogo">Wilderness</span>
-      <span class="plogo">Singita</span>
-      <span class="plogo">&amp;Beyond</span>
-      <span class="plogo">Natural Selection</span>
-      <span class="plogo">Desert &amp; Delta Safaris</span>
-      <span class="plogo">Namibia Individual Travel</span>
+      <span class="plogo"><img src="assets/partner-wilderness.png" alt="Wilderness" loading="lazy"></span>
+      <span class="plogo"><img src="assets/partner-singita.png" alt="Singita Game Reserves" loading="lazy"></span>
+      <span class="plogo"><img src="assets/partner-andbeyond.png" alt="&amp;Beyond" loading="lazy"></span>
+      <span class="plogo"><img src="assets/partner-natural-selection.svg" alt="Natural Selection" loading="lazy"></span>
+      <span class="plogo"><img src="assets/partner-desert-delta.png" alt="Desert &amp; Delta Safaris" loading="lazy"></span>
+      <span class="plogo"><img src="assets/partner-namibia.png" alt="Namibia Individual Travel" loading="lazy"></span>
     </div>
-    <p class="small partners-note">Prototype — placeholder wordmarks. Send the logo files (white, transparent PNG or SVG) and I’ll drop in the real marks.</p>
   </div>
 </section>
 
