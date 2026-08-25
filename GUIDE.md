@@ -89,6 +89,15 @@ This is the everyday loop:
 - **Be specific with words** — for text changes, give the exact wording you want.
 - **You can't really break anything.** Every saved version is kept; you can always go back (see below).
 
+### Hiding and bringing back sections
+
+Any part of the page — a whole section, a single card, the map — can be **switched off without deleting it**, and switched back on later exactly as it was. Nothing is lost, so you can toggle sections on and off freely as your content changes with the seasons.
+
+- *"Hide the Field notes section for now."*
+- *"Bring the Field notes section back."*
+
+If you'd rather remove something for good, say *"delete the … section"* — and even that can be undone afterwards if you change your mind.
+
 ---
 
 ## Part 4 — Git in plain English (commit & push)
@@ -123,7 +132,7 @@ Other things you can just ask for:
 A short to-do list of things that are placeholders or worth double-checking. Ask Claude to help with any of them.
 
 - **Enquiry form:** right now, "Send enquiry" opens the visitor's own email app with the details filled in. That works, but it depends on them having email set up. For enquiries to land straight in your inbox, ask Claude: *"Wire the enquiry form up to Formspree"* (a free service — you'll paste in one code it gives you).
-- **Testimonials:** the guests' countries and trip names are sensible placeholders. Replace them with real ones, and add guest photos if you have them.
+- **Testimonials:** the quotes and names are real — just double-check the country and trip label under each name is correct, and add guest photos if you have them.
 - **Prices:** check the three sample-trip prices and the budget bands in the enquiry form are accurate.
 - **Field notes:** the three article cards at the bottom don't link anywhere yet. Either add real articles, or ask Claude: *"Hide the Field notes section until we have articles."*
 - **Contact details:** confirm the email and phone number in the enquiry section and footer are correct.
