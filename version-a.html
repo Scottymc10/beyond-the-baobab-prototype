@@ -110,12 +110,6 @@ p:last-child{margin-bottom:0}
 .sec{padding:clamp(54px,6.4vw,94px) var(--pad)}
 /* faint full-bleed hairline between sections that share a ground */
 .seam{border-top:1px solid var(--edge-soft)}
-/* proof / track-record band */
-.proofbar{padding:clamp(40px,5vw,66px) var(--pad);border-top:1px solid var(--edge-soft)}
-.proofgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(24px,3vw,52px);text-align:center}
-.proofgrid strong{display:block;font-family:var(--display);font-weight:500;font-size:clamp(40px,5vw,70px);color:var(--sand);line-height:1;margin-bottom:12px;font-variant-numeric:oldstyle-nums}
-.proofgrid span{display:block;font-size:var(--fs-label);letter-spacing:.11em;text-transform:uppercase;color:var(--tx-mute);line-height:1.5;max-width:20ch;margin:0 auto}
-@media(max-width:720px){.proofgrid{grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,42px)}}
 .wrap{max-width:1280px;margin:0 auto}
 .sechead{display:flex;flex-wrap:wrap;gap:24px var(--gap);align-items:flex-end;justify-content:space-between;margin-bottom:clamp(40px,5vw,68px)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start}
@@ -228,11 +222,6 @@ body.menu-open .mobilemenu-links a:nth-child(7){animation-delay:.48s}
   border-right:1.5px solid var(--tx-lead);border-bottom:1.5px solid var(--tx-lead);
   rotate:45deg;transform:translateX(-50%);opacity:.85;animation:cuebob 2.4s ease-in-out infinite}
 @keyframes cuebob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
-.hero-inner{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:0 var(--pad) clamp(48px,7.5vh,84px)}
-.hero-title{font-family:var(--display);font-weight:500;font-size:clamp(40px,5.6vw,78px);line-height:1.02;letter-spacing:-.01em;color:var(--tx-head);max-width:26ch;margin:0 0 clamp(18px,1.8vw,26px);text-wrap:balance}
-.hero-sub{font-size:var(--fs-lead);line-height:1.5;color:var(--tx-lead);max-width:64ch;margin:0 0 clamp(26px,2.6vw,38px);text-wrap:pretty}
-.hero-btn{display:inline-block}
-@media(max-width:600px){.hero-inner{padding-bottom:clamp(44px,8vh,68px)}}
 
 /* ---------- intro ---------- */
 .intro-title{font-weight:500;line-height:1.07;max-width:15ch;margin:0 0 26px}
@@ -532,13 +521,6 @@ textarea{resize:vertical;min-height:76px}
     <source src="assets/hero-elephants.webm" type="video/webm">
     <source src="assets/hero-elephants.mp4" type="video/mp4">
   </video>
-  <div class="hero-inner">
-    <div class="wrap">
-      <h1 class="hero-title">A safari planned from inside Botswana.</h1>
-      <p class="hero-sub">Built by the couple who co-founded the Delta’s first 100% citizen-owned lodge — so every camp we send you to, we already know from the inside.</p>
-      <a class="btn hero-btn" href="#enquire">Plan your safari</a>
-    </div>
-  </div>
   <a class="hero-cue" href="#intro" aria-label="Scroll to introduction"></a>
 </header>
 
@@ -547,23 +529,11 @@ textarea{resize:vertical;min-height:76px}
   <div class="wrap two intro split">
     <div>
       <p class="label">Owner-run · Gaborone, Botswana</p>
-      <h2 class="intro-title">You get one first safari. We make sure it’s the right one.</h2>
-      <p class="lead">We are a husband-and-wife consultancy in Gaborone. Every camp on this site, we have slept in — most of them this year — so the trip we build you is the one we would take ourselves.</p>
-      <p class="small intro-meta">Okavango Delta · Chobe · Linyanti · Makgadikgadi · Central Kalahari · Tuli — Botswana, in full. Victoria Falls and Cape Town added when they earn their place.</p>
+      <h1 class="intro-title">A safari planned from inside Botswana.</h1>
+      <p class="lead">We are a husband-and-wife consultancy in Gaborone. Every camp on this site, we have slept in — most of them this year.</p>
+      <p class="small intro-meta">Okavango Delta · Chobe · Makgadikgadi · Namibia · Zimbabwe · South Africa</p>
     </div>
     <figure class="fig intro-photo reveal-img" style="background-image:url('assets/founders.webp')"></figure>
-  </div>
-</section>
-
-<!-- 1b2 · PROOF — track record as a standalone moment -->
-<section class="proofbar rv" aria-label="Track record">
-  <div class="wrap">
-    <div class="proofgrid">
-      <div><strong>9</strong><span>Years living in Botswana</span></div>
-      <div><strong>41</strong><span>Camps stayed in this year</span></div>
-      <div><strong>1st</strong><span>Citizen-owned lodge in the Delta, co-founded</span></div>
-      <div><strong>1:1</strong><span>Every trip planned by Kristy herself</span></div>
-    </div>
   </div>
 </section>
 
@@ -591,7 +561,11 @@ textarea{resize:vertical;min-height:76px}
     </div>
     <div>
       <p class="lead">We live four hours from the airstrip. When a camp changes managers, rebuilds its decks or quietly stops being worth the money, we know within the week — because we were there, or because the guide who took us out last season called to tell us.</p>
-      <p class="small" style="margin-top:22px">That is the difference between an agent who has read about a camp and one who slept there last season.</p>
+      <div class="facts">
+        <div><strong>41</strong><span>Camps stayed in, 2025–26</span></div>
+        <div><strong>9</strong><span>Years living in Botswana</span></div>
+        <div><strong>1:1</strong><span>Every journey planned by Kristy</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -813,27 +787,27 @@ textarea{resize:vertical;min-height:76px}
     <div class="voices">
       <figure class="voice">
         <blockquote>“From our first email, we knew we were in good hands. Beyond the Baobab planned everything so smoothly that we didn’t have to worry about a thing. Flights, transfers, lodges—everything was taken care of. It was clear they really listened to what we wanted, and the whole trip felt effortless. If you want a safari without the stress of planning, this is the team to trust!”</blockquote>
-        <figcaption><b>Georgia Jones</b><span>United Kingdom · The Flood Route</span></figcaption>
+        <figcaption><b>Georgia Jones</b></figcaption>
       </figure>
       <figure class="voice">
         <blockquote>“Flying over the Delta was something else! Seeing elephants and hippos from the air was just magical. Kristy made everything so easy, from the flights to the incredible lodges, where we were completely spoiled with amazing food, stunning views, and the most comfortable stays. The highlight? A helicopter ride over the Delta—hands down one of the coolest things we’ve ever done.”</blockquote>
-        <figcaption><b>Shingi Chaza</b><span>South Africa · Delta by helicopter</span></figcaption>
+        <figcaption><b>Shingi Chaza</b></figcaption>
       </figure>
       <figure class="voice">
         <blockquote>“What made my safari special was the guide, Kane. His knowledge of the wildlife, landscapes, and even local traditions made every game drive exciting. He had an amazing way of spotting animals and explaining their behaviors in a way that made us feel like part of the wild. Thanks to Beyond the Baobab, this wasn’t just a trip, it was an experience I’ll never forget.”</blockquote>
-        <figcaption><b>Michael Aplas</b><span>United States · Predator Country</span></figcaption>
+        <figcaption><b>Michael Aplas</b></figcaption>
       </figure>
       <figure class="voice">
         <blockquote>“I wanted a safari that felt safe and easy but still full of adventure, and Kristy made it happen. From the start, everything was taken care of. Warm welcomes, smooth transfers, and amazing guides who made me feel completely at home. The lodges were beautiful, and I always felt comfortable, even traveling alone. It was the perfect mix of freedom and support, and honestly, one of the best things I’ve ever done for myself!”</blockquote>
-        <figcaption><b>Michelle Weylandt</b><span>United Kingdom · Solo in the Delta</span></figcaption>
+        <figcaption><b>Michelle Weylandt</b></figcaption>
       </figure>
       <figure class="voice">
         <blockquote>“Going on a walking safari with Beyond the Baobab was one of the most exciting things I’ve ever done. Being on foot made me feel so connected to nature. We saw animal tracks up close, listened to the sounds of the bush, and learned so much from our guide. It was a completely different way to experience the wild. If you love adventure, don’t miss this!”</blockquote>
-        <figcaption><b>Joshua Geldenhuys</b><span>South Africa · Walking safari, Linyanti</span></figcaption>
+        <figcaption><b>Joshua Geldenhuys</b></figcaption>
       </figure>
       <figure class="voice">
         <blockquote>“I wanted a mix of adventure and relaxation, and Beyond the Baobab created the perfect trip for me. Between game drives, I got to do yoga in the most peaceful settings, sometimes with elephants in the distance! The lodges had spa treatments and quiet spaces to unwind after a day of exploring. It was the best mix of excitement and calm, and I came home feeling refreshed and inspired.”</blockquote>
-        <figcaption><b>Lauren Brabant</b><span>United States · Delta &amp; Makgadikgadi</span></figcaption>
+        <figcaption><b>Lauren Brabant</b></figcaption>
       </figure>
     </div>
   </div>
